@@ -21,7 +21,7 @@ We assign positive rewards to finding the correct geographical location and retr
 ## Evaluation Plan
 The AI’s performance will be evaluated based on success to find materials and craft items being asked. 
 
-##Appointment with the Instructor
+## Appointment with the Instructor
 Wed, Apr 24, 4:45PM
 
 
