@@ -19,7 +19,7 @@ Q-learning finds a policy that is optimal in the sense that it maximizes the exp
 We assign positive rewards to finding the correct geographical location and retrieving the required resources as specified by the user. 
 
 ## Evaluation Plan
-The AI’s performance will be evaluated based on success to find materials and craft items being asked. 
+The AI’s performance will be evaluated based on success to find materials and craft items being asked. The idea is that after multiple iterations the program will be able to devise an optimal path based on the specifications of the map and userinput to find resources and craft. Positive points will be assigned to an AI for reaching goal terrains and finding resources in goal terrians, negative points will be assigned for navigating to areas that are not goal terrains, leaving goal terrains before finding all the materials required, spending to much time in goal terrains and not crafting when applicable.
 
 ## Appointment with the Instructor
 Wed, Apr 24, 4:45PM
