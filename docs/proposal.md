@@ -1,9 +1,11 @@
 ---
 layout: default
-title: Proposal
+title:  Proposal
 ---
 
-##Proposal
+## H2
+
+
 ##Summary of the Project
 This project aims to use AI/ML algorithms to find materials in the map and craft items based on user input using NLP. For example, there are various areas such as forest, water, lava, ...etc that hold different types of predefined resources. If the system gets a command, “craft a wooden sword,” then the AI will find the area in the map that has access to the resources required to build this item and craft it. 
 
