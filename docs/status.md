@@ -43,8 +43,7 @@ Our current approach is using the static hueristics to find a suboptimal solutio
 
 ### How do we do with static hueristics and A* on potential challenges?
 Not well
-<iframe src="https://www.youtube.com/watch?v=tmKcxlXll-s&feature=youtu.be&fbclid=IwAR3uhG3rVtI4Q13M7bnW4XpQPBKiZBhNFgXf5v6_96SOmW095dX_ROOzVu0
-" frameborder="0" allowfullscreen=""></iframe>
+<iframe src="https://www.youtube.com/watch?v=tmKcxlXll-s" frameborder="0" allowfullscreen=""></iframe>
 
 ### Sources:
 - [Learning Heuristic Functions For Large State Spaces](https://www.sciencedirect.com/science/article/pii/S0004370211000877?fbclid=IwAR3o29EXShje6HAfJ-OC908yusSttGQ1AaaLXFmG_2wmK_0_tiwZCSYQCDI) 
