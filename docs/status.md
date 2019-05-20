@@ -41,6 +41,8 @@ Our current approach is using the static hueristics to find a suboptimal solutio
 - enemy MOBs: Paths that avoid mobs upon contact could do better.
 
 ### Implementation Strategy
+Previous good paths will be saved in a database, a similarity check between current path and prev paths will be implemented, highest close scoring best path will be chosen, repeat till end of timer. If current path good, add to DB.
+
 Pseudocode:<br>
 1: procedure pastProcessingRuns:<br>
 2:		PLDB <- buildDatabase(S,k) S is set of solved instances, k is samples per plan<br>
