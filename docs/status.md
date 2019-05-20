@@ -12,11 +12,6 @@ title:  Status
 
 ## Project Summary:
 
-### Background:
-Agent 007 needs to provide for his family. Unfortunately he can only stand the toxcity levels in his resourse grounds for so long before he must exit. Agent 007 needs to pick up as many high value items in the resource grounds as possible. There are also  dangers such as pitfalls he must avoid.
-
-<img src="https://lh3.googleusercontent.com/XuGf9Ndr3ncyEUYWABiNNY1QYvMnFNkp7xCIBrmBJ9gY92f_HmaGwoFbnpNrwBoMnMaaP7D_AZUhJZb2Il__0HE=s400">
-
 ### Environment:
 A large flat world map with many random spawned items. 007 has a certain amount of time to grab as many high value items as possible. 
 
@@ -31,6 +26,7 @@ Our current approach is using the static hueristics to find a suboptimal solutio
 ### Sources:
 - https://www.sciencedirect.com/science/article/pii/S0004370211000877?fbclid=IwAR3o29EXShje6HAfJ-OC908yusSttGQ1AaaLXFmG_2wmK_0_tiwZCSYQCDI
 - http://proceedings.mlr.press/v78/bhardwaj17a/bhardwaj17a.pdf
+- https://www.cs.cmu.edu/~maxim/files/learningtosearch_socs15.pdf
 
 
 
