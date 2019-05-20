@@ -40,6 +40,17 @@ Our current approach is using the static hueristics to find a suboptimal solutio
 - "point drain spots": Don't know these spots before reaching them. Learn to avoid them.
 - enemy MOBs: Paths that avoid mobs upon contact could do better.
 
+### Implementation Strategy
+Pseudocode:
+1: procedure pastProcessingRuns:
+2:		PLDB <- buildDatabase(S,k) S is set of solved instances, k is samples per plan
+3:		PARTITIONDATABASE(PLDB,n) <- n is number of additional hueristics
+4: procedure inGameProcessing:
+5:		input: Problem isntance P(i) consistent hueristic h0 (distance + reward)
+6:		FINDHUERISTICCANDIDATES(P(i), n)
+7:		PLANWITHMHA*
+8:		IF PLAN GOOD:
+9:			UPDATEDB
 
 ### How do we do with static hueristics and A* on potential challenges?
 Not well
