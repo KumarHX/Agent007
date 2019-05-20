@@ -43,12 +43,13 @@ Our current approach is using the static hueristics to find a suboptimal solutio
 
 ### How do we do with static hueristics and A* on potential challenges?
 Not well
-<iframe src="https://www.youtube.com/watch?v=tmKcxlXll-s" frameborder="0" allowfullscreen=""></iframe>
+
+<iframe src="https://www.youtube.com//embed/tmKcxlXll-s" frameborder="0" allowfullscreen=""></iframe>
 
 ### Sources:
 - [Learning Heuristic Functions For Large State Spaces](https://www.sciencedirect.com/science/article/pii/S0004370211000877?fbclid=IwAR3o29EXShje6HAfJ-OC908yusSttGQ1AaaLXFmG_2wmK_0_tiwZCSYQCDI) 
 - [Learning Heuristic Search via Imitation](http://proceedings.mlr.press/v78/bhardwaj17a/bhardwaj17a.pdf)
-- Learning to Search More Efficiently from Experience: A Multi-Heuristic Approach](https://www.cs.cmu.edu/~maxim/files/learningtosearch_socs15.pdf)
+- [Learning to Search More Efficiently from Experience: A Multi-Heuristic Approach](https://www.cs.cmu.edu/~maxim/files/learningtosearch_socs15.pdf)
 
 Reports:
 
