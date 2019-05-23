@@ -6,11 +6,7 @@ title:  Team
 # {{ page.title }}
 
 
-## USER 1
-***Pranavk1***: Pranavk1
-
-## USER 2
-***eunbik2***: eunbik1
-
-## USER 3
-***jingl27***: jingl27
+## Team Members:
+***Pranavk1***: Pranav Kumar 
+***eunbik2***:  Eunbin Ko 
+***jingl27***:  Jing Li 

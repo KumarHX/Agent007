@@ -40,8 +40,13 @@ Our current approach is using the static hueristics to find a suboptimal solutio
 - "point drain spots": Don't know these spots before reaching them. Learn to avoid them.
 - enemy MOBs: Paths that avoid mobs upon contact could do better.
 
+### Problems with the learning hueristic?
+The learning heuristic is time consuming as it requires many saved trials. We will also need to optimize relationship between random moves, static hueristic, and between how many steps will the learned hueristic guide player movement. The way we plan to solve the long train time issue is serializing the dictionary of pastruns with a library like Pickle and loading to in for future runs. We will attempt many different combinations of random move percent/number of moves before learning huertic guides path to find optimal solution. 
+
+<img src="https://pythontic.com/python_pickle.png">
+
 ### Implementation Strategy
-Previous good paths will be saved in a database, a similarity check between current path and prev paths will be implemented, highest close scoring best path will be chosen, repeat till end of timer. If current path good, add to DB.
+Previous high scoring paths will be saved in a database, a similarity check between current path and prev paths will be implemented every x steps, highest close scoring best path will be chosen, repeat till end of timer. If current path good, add to DB.
 
 Pseudocode:<br>
 1: procedure pastProcessingRuns:<br>
@@ -51,7 +56,7 @@ Pseudocode:<br>
 5:		input: Problem isntance P(i) consistent hueristic h0 (distance + reward)<br>
 6:		FINDHUERISTICCANDIDATES(P(i), n)<br>
 7:		PLANWITHMHA*<br>
-8:		IF PLAN GOOD:<br>
+8:		IF PLAN BEATS SCORE CRITERIA:<br>
 9:			UPDATEDB<br>
 <br>
 ### How do we do with static hueristics and A* on potential challenges?
