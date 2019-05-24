@@ -8,7 +8,7 @@ title:  Status
 
 ## Status Report Video
 
-<iframe src="https://www.youtube.com/embed/TTUUmLabrpc" frameborder="0" allowfullscreen=""></iframe>
+<iframe src="https://www.youtube.com/embed/x4EzAYQfYFk" frameborder="0" allowfullscreen=""></iframe>
 
 ## Project Summary:
 
@@ -19,6 +19,9 @@ A large flat world map with many random spawned items. 007 has a certain amount 
 
 ### Current Status:
 The current state utilizes the A* star algorithm and applies hueristics of shortest path from agent to items and hueristic of item value to grab close high value items for optimal solution. In further updates, we will employ a learned hueristic to look out for dangers on the map and look for potential path strategies that will lead to better outputs (removing the bias our paths take depending on agent spawn). There is a 10% chance a random move will be made. This is not optimal now since there is no learned search hueristic implemented yet, but this will be good in the future when our hueristic will learn from past runs (one static run won't teach much).
+
+<iframe src="https://www.youtube.com/embed/ZrPqruSfdYQ" frameborder="0" allowfullscreen=""></iframe>
+<iframe src="https://www.youtube.com/embed/P6vfZ9ycSUc" frameborder="0" allowfullscreen=""></iframe>
 
 ### Current Preformance:
 
