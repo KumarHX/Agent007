@@ -62,11 +62,6 @@ Pseudocode:<br>
 8:		IF PLAN BEATS SCORE CRITERIA:<br>
 9:			UPDATEDB<br>
 <br>
-### How do we do with static hueristics and A* on potential challenges?
-Not well
-
-<iframe src="https://www.youtube.com//embed/tmKcxlXll-s" frameborder="0" allowfullscreen=""></iframe>
-
 ### Sources:
 - [Learning Heuristic Functions For Large State Spaces](https://www.sciencedirect.com/science/article/pii/S0004370211000877?fbclid=IwAR3o29EXShje6HAfJ-OC908yusSttGQ1AaaLXFmG_2wmK_0_tiwZCSYQCDI) 
 - [Learning Heuristic Search via Imitation](http://proceedings.mlr.press/v78/bhardwaj17a/bhardwaj17a.pdf)
