@@ -91,12 +91,13 @@ f(n): reward, we didn’t count number of steps because the path is continuous, 
 #### Sparse Map:
 Choosing a random item after every pickup and at initialization: 
 ![](RandomSparse.png?raw=true)
+<br>
 Avg. Score = -4.75 
 
 Choosing a random item at initialization then employing shortest distance:
 ![](ShortestPathSparse.png?raw=true)
+<br>
 Avg. Score = -28
-(Indicates a lot of low value targets near agent)
 
 Choosing item based on learned hueristic: 
 
@@ -105,10 +106,12 @@ Choosing item based on learned hueristic:
 
 Choosing a random item after every pickup and at initialization: 
 ![](RandomCluster.png?raw=true)
+<br>
 Avg. Score = -14.25 
 
 Choosing a random item at initialization then employing shortest distance:
 ![](ShortestPathCluster.png?raw=true)
+<br>
 Avg. Score = -12.5
 
 Choosing item based on learned hueristic: 
