@@ -52,7 +52,7 @@ Reliance on learned hueristic: 50%
 ## Evaluation:
 f(n): reward / # of items, we didn’t count number of steps because the path is continuous, the depending factor is the item pickup sequence. Also, because the agent is trying to reach out the best score and each item is unique with a unique score, reward/# of items is a fair metric to evaluate performance of a run.
 
-# Sparse Map:
+#### Sparse Map:
 Shortest path with giving reward / step score (average score) = 180
 We only have five runs for this algorithm since the score will always be the same. 5 runs just to prove that the agent is always picking up the optimal items.
 
