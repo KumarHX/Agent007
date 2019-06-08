@@ -74,26 +74,19 @@ The learned hueristic is a set of past runs stored in a dictionary. There is a 5
 
 Key, value dictionary built with each entry representing a training run.
 key: list of items picked up.
-value: Average item pick up score per path (reward/# of items).
+value: Average item pick up score per path (reward).
+Save finished run in dictionary (learn from every run).
+
 
 ### The Different Agents
-Strategy 1: map exploration (high randomness)
-Random item selection 25%
-Reliance on constant hueristic: 90%
-Reliance on learned hueristic: 10%
+Strategy 1: map exploration (random item selected each time)
 
-Strategy 2: value grab
-Random item selection 5%
-Reliance on constant hueristic: 10%
-Reliance on learned hueristic: 90%
+Strategy 2: distance grab (random item selected first time then closest item)
 
-Strategy 3: balance
-Random item selection 12.5%
-Reliance on constant hueristic: 50%
-Reliance on learned hueristic: 50%
+Strategy 3: AI (random item selected first time then best item to select based on previous runs)
 
 ## Evaluation:
-f(n): reward / # of items, we didn’t count number of steps because the path is continuous, the depending factor is the item pickup sequence. Also, because the agent is trying to reach out the best score and each item is unique with a unique score, reward/# of items is a fair metric to evaluate performance of a run.
+f(n): reward, we didn’t count number of steps because the path is continuous, the depending factor is the item pickup sequence. Also, because the agent is trying to reach out the best score and each item is unique with a unique score, reward/# of items is a fair metric to evaluate performance of a run.
 
 #### Sparse Map:
 Choosing a random item after every pickup and at initialization: 
