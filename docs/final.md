@@ -16,7 +16,7 @@ A large flat world map with many predetermined placed spawned items. Agent has a
 The agent uses a constant hueristic for reward of each item given distance to item from current position + item value and a learned hueristic built from past runs to find clusters of items. The learned hueristic AI solves the problem of going for best singular item but missing item cluster locations that would lead to better overall scores. 
 
 ###Seperate Enviornments:
-There are three different environment types: Sparce, Dense and Middle. Sparse will not have many items (20), dense will have many items (100) and middle will have an average amount (55). Different agents will be employed in these different areas. (1): random agent (random movements), (2): agent relying mainly on the constant hueristic and (3): agent relying mainly on the learned hueristic. This will help our evaluation of our AI (detailed in evaluation section).
+There are three different environment types: Sparce, Dense and Middle. Sparse will not have many items (30), dense will have many items (100) and middle will have an average amount (60). Different agents will be employed in these different areas. (1): random agent (random movements), (2): agent relying mainly on the constant hueristic and (3): agent relying mainly on the learned hueristic. This will help our evaluation of our AI (detailed in evaluation section).
 
 ## Approach:
 
@@ -50,6 +50,37 @@ Reliance on constant hueristic: 50%
 Reliance on learned hueristic: 50%
 
 ## Evaluation:
+f(n): reward / # of items, we didn’t count number of steps because the path is continuous, the depending factor is the item pickup sequence. Also, because the agent is trying to reach out the best score and each item is unique with a unique score, reward/# of items is a fair metric to evaluate performance of a run.
+
+#Sparse Map:
+Shortest path with giving reward / step score (average score) = 180
+We only have five runs for this algorithm since the score will always be the same. 5 runs just to prove that the agent is always picking up the optimal items.
+
+Random 20 runs:
+The agent scored 65.0
+The agent scored -25.0
+The agent scored -10.0
+The agent scored -5.0
+The agent scored -85.0
+The agent scored 15.0
+The agent scored 10.0
+The agent scored 50.0
+The agent scored -35.0
+The agent scored -30.0
+The agent scored 50.0
+The agent scored 10.0
+The agent scored 0.0
+The agent scored 0.0
+The agent scored 45.0
+The agent scored -50.0
+The agent scored -65.0
+The agent scored -15.0
+The agent scored 15.0
+The agent scored -35.0
+Total Score: -95 
+Average: -4.75
+
+![](randomVSConstant.png?raw=true)
 
 
 
