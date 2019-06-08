@@ -60,8 +60,8 @@ red_mushroom, 12.53 location change 5 points
 MAX SCORE: 245 points
 
 Cluster Map:
-
-
+![](ClusterMap.png?raw=true)
+Our AI should solve the issue of going for valuable individual items rather than higher value clusters. 
 ## Approach:
 
 ### Building the constant hueristic
@@ -70,10 +70,10 @@ The constant hueristic utilizes the constant variable of item location with resp
 g(n) : giving the agent position x1, y1, giving each item’s position x2, y2, calculate the distance between the agent and each item using formula D = sqrt ((x2 - x1)^2 + (y2 - y1)^2) 
 
 ### Building the learned hueristic
-The learned hueristic is a set of past runs stored in a dictionary. There is a X% chance the agent will choose a random item and an X% chance the agent will choose the closest item when running the trials for the learned hueristic. After many runs, the dictionary will hold many different item pickup sequences with a score attributed to the run. This dictionary will then help guide agent movmement (go for item sequences with a high score in the dictionary).
+The learned hueristic is a set of past runs stored in a dictionary. There is a 50% chance the agent will choose a random item and a 50% chance the agent will choose the closest item when running the trials for the learned hueristic. After many runs, the dictionary will hold many different item pickup sequences with a score attributed to the run. This dictionary will then help guide agent movmement (go for item sequences with a high score in the dictionary).
 
 Key, value dictionary built with each entry representing a training run.
-key; list of items picked up
+key: list of items picked up.
 value: Average item pick up score per path (reward/# of items).
 
 ### The Different Agents
@@ -100,9 +100,27 @@ Choosing a random item after every pickup and at initialization:
 ![](RandomSparse.png?raw=true)
 Avg. Score = -4.75 
 
+Choosing a random item at initialization then employing shortest distance:
+![](ShortestPathSparse.png?raw=true)
+Avg. Score = -28
+(Indicates a lot of low value targets near agent)
+
+Choosing item based on learned hueristic: 
+
 
 #### Cluster Map:
 
+Choosing a random item after every pickup and at initialization: 
+![](RandomCluster.png?raw=true)
+Avg. Score = -14.25 
+
+Choosing a random item at initialization then employing shortest distance:
+![](ShortestPathCluster.png?raw=true)
+Avg. Score = -12.5
+
+Choosing item based on learned hueristic: 
+
+#### Results:
 
 
 ## Sources
