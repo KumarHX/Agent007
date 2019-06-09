@@ -85,6 +85,54 @@ key: list of items picked up.
 value: Average item pick up score per path (reward).
 Save finished run in dictionary (learn from every run).
 
+### Using the learned hueristic
+Let's say we have 5 test runs in our dictionary.
+Itemlist: score
+A,V,C,D,E : 200
+C:R:V:D:A : 150
+M,N,O,P,R: -30
+Q,A,S,T,P: 300
+W,C,U,R: 270
+
+We start with the highest sequence value first element.
+Q,A,S,T,P: 300
+
+Current list: Q
+
+Then we either take the next highest value from list (50%) or a random item on map (50%)
+Let's say this run randomly selected V.
+
+Current list: Q,V
+
+Then we either take the next highest value from list (50%) or a random item on map (50%)
+Lets say the dictionary was selected. 
+
+These two lists have V in them:
+A,V,C,D,E : 200
+C:R:V:D:A : 150
+
+This list is higher:
+A,V,C,D,E : 200
+
+Next value: C.
+Current list: Q,V,C
+Then we either take the next highest value from list (50%) or a random item on map (50%)
+Lets say the dictionary was selected. 
+
+These three lists have C in them:
+A,V,C,D,E : 200
+C:R:V:D:A : 150
+W,C,U,R: 270
+
+This list is highest:
+W,C,U,R: 270
+
+Next value: U.
+Current list: Q,V,C,U
+
+End of time.
+New path Q,V,C,U (score: 170)
+added to dictionary.
 
 ### The Different Agents
 Strategy 1: map exploration (random item selected each time)
