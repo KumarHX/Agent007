@@ -9,11 +9,19 @@ title:  Final
 
 ## Project Summary:
 
+### Problem Statement:
+Agent 007 spawns on a flat map and has a time limit to pick up as many high value items as possible. Agent knows item locations but not item values (could be negative).
+
 ### Environment:
 The enviornment consists of a 120x120 flat world map with 30 predetermined distinct spawned items. The agent has a certain amount of time to grab as many high value items as possible. Each item is distinct with a distinct value. The map is not completely observable, all item positions are known to the agent but not item values. The agent is in constant motion and changes in the agent's positional degree direction lead to changes in movement direction.
 
+### Problems to Solve:
+value: item value is unknown to the agent
+clustering: this agent does not account for clusters of items that may not be the best individual node to go to but would lead to a higher overall score due to proximity of other items in the area.
+![](ClusteringVisualized.png?raw=true)
+
 ### Thesis of Solution:
-The agent uses a constant hueristic to evaluate the reward for each item given the distance to the item from the current position while factoring the item value and finding high value clusters of items by utilizing the learned hueristic built from past runs. The learned hueristic AI solves the problem of going for closer items with lower scores and also solves the problem of going for the best singular item but missing item cluster locations that would lead to better overall scores. 
+The agent uses a constant hueristic to evaluate the reward for each item given the distance to the item from the current position while factoring the item value and finding high value clusters of items by utilizing a learned hueristic built from past runs. The learned hueristic AI solves the problem of item value and clustering.
 
 ### Seperate Enviornments:
 There are two different environment types we want to test our AI on: Sparce and Cluster.
@@ -70,7 +78,7 @@ The constant hueristic utilizes the constant variable of item location with resp
 g(n) : giving the agent position x1, y1, giving each item’s position x2, y2, calculate the distance between the agent and each item using formula D = sqrt ((x2 - x1)^2 + (y2 - y1)^2) 
 
 ### Building the learned hueristic
-The learned hueristic is a set of past runs stored in a dictionary. There is a 50% chance the agent will choose a random item and a 50% chance the agent will choose the closest item when running the trials for the learned hueristic. After many runs, the dictionary will hold many different item pickup sequences with a score attributed to the run. This dictionary will then help guide agent movmement (go for item sequences with a high score in the dictionary).
+The learned hueristic is a set of past runs stored in a dictionary. There is a 50% chance the agent will choose a random item and a 50% chance the agent will choose the closest item when running the trials for the learned hueristic. After many runs, the dictionary will hold many different item pickup sequences with a score attributed to the run. This dictionary will then help guide agent movement (lookup current picked up item with prev runs, choose highest run, make next pickup next in stored sequence).
 
 Key, value dictionary built with each entry representing a training run.
 key: list of items picked up.
@@ -91,12 +99,10 @@ f(n): reward, we didn’t count number of steps because the path is continuous, 
 #### Sparse Map:
 Choosing a random item after every pickup and at initialization: 
 ![](RandomSparse.png?raw=true)
-<br>
 Avg. Score = -4.75 
 
 Choosing a random item at initialization then employing shortest distance:
 ![](ShortestPathSparse.png?raw=true)
-<br>
 Avg. Score = -28
 
 Choosing item based on learned hueristic: 
@@ -106,12 +112,10 @@ Choosing item based on learned hueristic:
 
 Choosing a random item after every pickup and at initialization: 
 ![](RandomCluster.png?raw=true)
-<br>
 Avg. Score = -14.25 
 
 Choosing a random item at initialization then employing shortest distance:
 ![](ShortestPathCluster.png?raw=true)
-<br>
 Avg. Score = -12.5
 
 Choosing item based on learned hueristic: 
