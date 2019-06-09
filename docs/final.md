@@ -18,7 +18,7 @@ The enviornment consists of a 120x120 flat world map with 30 predetermined disti
 ### Problems to Solve:
 value: item value is unknown to the agent
 clustering: this agent does not account for clusters of items that may not be the best individual node to go to but would lead to a higher overall score due to proximity of other items in the area.
-![](ClusteringVisualized.png?raw=true)
+![](ClusteringVisualized.png?raw=true)<br>
 
 ### Thesis of Solution:
 The agent uses a constant hueristic to evaluate the reward for each item given the distance to the item from the current position while factoring the item value and finding high value clusters of items by utilizing a learned hueristic built from past runs. The learned hueristic AI solves the problem of item value and clustering.
@@ -68,7 +68,7 @@ red_mushroom, 12.53 location change 5 points
 MAX SCORE: 245 points
 
 Cluster Map:
-![](ClusterMap.png?raw=true)
+![](ClusterMap.png?raw=true)<br>
 Our AI should solve the issue of going for valuable individual items rather than higher value clusters. 
 ## Approach:
 
@@ -98,11 +98,11 @@ f(n): reward, we didn’t count number of steps because the path is continuous, 
 
 #### Sparse Map:
 Choosing a random item after every pickup and at initialization: 
-![](RandomSparse.png?raw=true)
+![](RandomSparse.png?raw=true)<br>
 Avg. Score = -4.75 
 
 Choosing a random item at initialization then employing shortest distance:
-![](ShortestPathSparse.png?raw=true)
+![](ShortestPathSparse.png?raw=true)<br>
 Avg. Score = -28
 
 Choosing item based on learned hueristic: 
@@ -111,11 +111,11 @@ Choosing item based on learned hueristic:
 #### Cluster Map:
 
 Choosing a random item after every pickup and at initialization: 
-![](RandomCluster.png?raw=true)
+![](RandomCluster.png?raw=true)<br>
 Avg. Score = -14.25 
 
 Choosing a random item at initialization then employing shortest distance:
-![](ShortestPathCluster.png?raw=true)
+![](ShortestPathCluster.png?raw=true)<br>
 Avg. Score = -12.5
 
 Choosing item based on learned hueristic: 
