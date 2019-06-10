@@ -42,7 +42,7 @@ Random Agent after 50 runs <br>
 
 ##### **Agent pick up the closest item (first item is random)**
 Agent after 50 runs <br>
-<a href="url"><img src="ShortestPathSparse.png" align="center" height="300" width="300" ></a>
+<a href="url"><img src="ShortestPathSparse.png" align="center" height="300" width="500" ></a>
 
 
 ## References:
