@@ -30,7 +30,7 @@ We evaluate our algorithm with the agent that:
 - Randomly pick up an item
 - Randomly pick up the first item and closest item afterward
 
-We calculate the total score and the average score that each agent achieve after 50 runs and compare the result.
+We compute the total score and the average score that each agent achieve after 50 runs and compare the result.
 
 ##### **Agent007**
 Agent007 after 50 runs
