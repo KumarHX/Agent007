@@ -8,9 +8,9 @@ title:  Final
 ## Video:
 
 ## Project Summary:
-Agent 007 spawns on a flat map and has a time limit to pick up as many high value items as possible. Agent knows item locations but not item values (could be negative).
+Agent 007 spawns on a flat map and has a time limit to pick up as many high value items as possible. The size of the map is 120x120 
+with 30 predetermined distinct spawned items. Each item is distinct with a distinct value. The map is not completely observable, all item's position are known to the agent but not item values. The agent has a certain amount of time to pick up any items and reach the maximum score he can get. 
 
-The enviornment consists of a 120x120 flat world map with 30 predetermined distinct spawned items. The agent has a certain amount of time to grab as many high value items as possible. Each item is distinct with a distinct value. The map is not completely observable, all item positions are known to the agent but not item values. The agent is in constant motion and changes in the agent's positional degree direction lead to changes in movement direction.
 
 value: item value is unknown to the agent
 clustering: this agent does not account for clusters of items that may not be the best individual node to go to but would lead to a higher overall score due to proximity of other items in the area.
