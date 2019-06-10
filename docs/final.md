@@ -40,7 +40,7 @@ Random Agent after 50 runs
 
 Random Agent after 100 runs
 
-#### **Agent pick up the closest item (the first item is random)**
+#### **Agent pick up the closest item (first item is random)**
 Agent after 50 runs
 
 Agent after 100 runs
