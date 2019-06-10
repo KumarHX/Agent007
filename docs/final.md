@@ -34,7 +34,7 @@ We run all three agents with different map settings. One is sparse map where the
 
 - ### Random Agent
 Result after 50 runs using sparse map. The total score achieved is -265 with an average score -5.3. <br>
-<a href="url"><img src="RandomSparse.png" align="center" height="300" width="500" ></a>
+<a href="url"><img src="RandomSparse.png" align="center" height="300" width="500" ></a> <br>
 Result after 50 runs using cluster map. The total score achieved is -55 with an average score -1.1. <br>
 <a href="url"><img src="RandomCluster.png" align="center" height="300" width="500" ></a>
 
