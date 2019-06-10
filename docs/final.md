@@ -16,7 +16,7 @@ with 30 predetermined distinct spawned items. Each item is distinct with a disti
 ## Approach:
 The agent uses A* search algorithm which is A* = g(n) + h(n), where g(n) is the distance from the agent position to the item's position and h(n) is a heuristic function that estimates the cost (reward) of the item. The agent evaluate the reward for each item given the distance to the item from its current position while factoring the item value and finding high value clusters of items by utilizing the heuristic function built from past runs.
 
-###### **Calculate the distance**
+#### **Calculate the distance**
 Given the agent position (x1, y1), and item position (x2, y2), we calculate the distance between the agent and each item using formula **distance = sqrt ((x2 - x1)^2 + (y2 - y1)^2)**. 
 
 ### Building the learned heuristic
