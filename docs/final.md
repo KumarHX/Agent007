@@ -36,6 +36,9 @@ We run all three agents with different map settings. One is sparse map where the
 Result after 50 runs using sparse map. The total score achieved is -265 with an average score -5.3. <br>
 <a href="url"><img src="RandomSparse.png" align="center" height="300" width="500" ></a>
 
+Result after 50 runs using cluster map. The total score achieved is -55 with an average score -1.1. <br>
+<a href="url"><img src="RandomCluster.png" align="center" height="300" width="500" ></a>
+
 
 - ### Agent pick up the closest item (first item is random)
 Result after 50 runs using sparse map. The total score achieved is -195 with an average score -3.9. The score is slightly better than the random agent, since it is more likely to pick up more items. <br>
