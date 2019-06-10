@@ -28,40 +28,22 @@ We store a certain amount of random runs in dictionary which hold different item
 ## Evaluation:
 We evaluate our algorithm with the agent that:
 - Randomly pick up item
-- Pick up the closest item
+- Randomly pick up the first item and closest item afterward
 
+#### **Agent007**
+Agent007 after 50 runs
 
-### Seperate Enviornments:
-There are two different environment types we want to test our AI on: Sparce and Cluster.
-Sparse maps will have the item set very spread out. 
-Cluster maps will have the item set clustered together in bunches. 
+Agent007 after 100 runs
 
-#### Sparse Map:
-Choosing a random item after every pickup and at initialization: 
-![](RandomSparse.png?raw=true)<br>
-Avg. Score = -4.75 
+#### **Random Agent**
+Random Agent after 50 runs
 
-Choosing a random item at initialization then employing shortest distance:
-![](ShortestPathSparse.png?raw=true)<br>
-Avg. Score = -28
+Random Agent after 100 runs
 
-Choosing item based on learned hueristic: 
+#### **Agent pick up the closest item (the first item is random)**
+Agent after 50 runs
 
-
-#### Cluster Map:
-
-Choosing a random item after every pickup and at initialization: 
-![](RandomCluster.png?raw=true)<br>
-Avg. Score = -14.25 
-
-Choosing a random item at initialization then employing shortest distance:
-![](ShortestPathCluster.png?raw=true)<br>
-Avg. Score = -12.5
-
-Choosing item based on learned hueristic: 
-
-#### Results:
-
+Agent after 100 runs
 
 ## References:
 - [Learning Heuristic Functions For Large State Spaces](https://www.sciencedirect.com/science/article/pii/S0004370211000877?fbclid=IwAR3o29EXShje6HAfJ-OC908yusSttGQ1AaaLXFmG_2wmK_0_tiwZCSYQCDI) 
@@ -73,5 +55,7 @@ Reports:
 - [Proposal](proposal.html)
 - [Status](status.html)
 - [Final](final.html)
+
+Source Code:
 
 
