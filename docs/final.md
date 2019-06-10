@@ -41,8 +41,8 @@ Result after 50 runs using cluster map. The total score achieved is -55 with an 
 - ### Agent pick up the closest item (first item is random) !Need Explanation of the Graph! Feel free to change
 Result after 50 runs using sparse map. The total score achieved is -195 with an average score -3.9. The score is slightly better than the random agent because... <br>
 <a href="url"><img src="ShortestPathSparsenew.png" align="center" height="300" width="500" ></a> <br><br>
-Result after 50 runs using cluster map. The total score achieved is -460 with an average score -9.2. The score is much lower than the random agent because...
-<a href="url"><img src="ShortestPathCluster.png" align="center" height="300" width="500" ></a> <br><br>
+Result after 50 runs using cluster map. The total score achieved is -460 with an average score -9.2. The score is much lower than the random agent because... <br>
+<a href="url"><img src="ShortestPathCluster.png" align="center" height="300" width="500" ></a> 
 
 - ### Agent007
 Result after 50 runs using sparse map. <br>
