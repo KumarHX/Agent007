@@ -5,7 +5,7 @@ title:  Final
 
 # Agent007: The A* Scholar Final Report
 
-## Status Report Video
+## Video:
 
 ## Project Summary:
 
@@ -20,8 +20,7 @@ value: item value is unknown to the agent
 clustering: this agent does not account for clusters of items that may not be the best individual node to go to but would lead to a higher overall score due to proximity of other items in the area.
 ![](ClusteringVisualized.png?raw=true)<br>
 
-### Thesis of Solution:
-The agent uses a constant hueristic to evaluate the reward for each item given the distance to the item from the current position while factoring the item value and finding high value clusters of items by utilizing a learned hueristic built from past runs. The learned hueristic AI solves the problem of item value and clustering.
+
 
 ### Seperate Enviornments:
 There are two different environment types we want to test our AI on: Sparce and Cluster.
@@ -71,6 +70,9 @@ Cluster Map:
 ![](ClusterMap.png?raw=true)<br>
 Our AI should solve the issue of going for valuable individual items rather than higher value clusters. 
 ## Approach:
+
+### Thesis of Solution:
+The agent uses a constant hueristic to evaluate the reward for each item given the distance to the item from the current position while factoring the item value and finding high value clusters of items by utilizing a learned hueristic built from past runs. The learned hueristic AI solves the problem of item value and clustering.
 
 ### Building the constant hueristic
 The constant hueristic utilizes the constant variable of item location with respect to the agent's current location to guide the agent's movement.
@@ -134,12 +136,7 @@ End of time.
 New path Q,V,C,U (score: 170)
 added to dictionary.
 
-### The Different Agents
-Strategy 1: map exploration (random item selected each time)
 
-Strategy 2: distance grab (random item selected first time then closest item)
-
-Strategy 3: AI (random item selected first time then best item to select based on previous runs)
 
 ## Evaluation:
 f(n): reward, we didn’t count number of steps because the path is continuous, the depending factor is the item pickup sequence. Also, because the agent is trying to reach out the best score and each item is unique with a unique score, reward/# of items is a fair metric to evaluate performance of a run.
