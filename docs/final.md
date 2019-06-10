@@ -9,21 +9,16 @@ title:  Final
 
 ## Project Summary:
 Agent 007 spawns on a flat map and has a time limit to pick up as many high value items as possible. The size of the map is 120x120 
-with 30 predetermined distinct spawned items. Each item is distinct with a distinct value. The map is not completely observable, all item's position are known to the agent but not item values. The agent has a certain amount of time to pick up any items, but the problem is that 
+with 30 predetermined distinct spawned items. Each item is distinct with a distinct value. The map is not completely observable, all item's position are known to the agent but not item values. The agent has a certain amount of time to pick up any items, but the problem is that items can have negative values and for clusters of items ... 
 
-
-value: item value is unknown to the agent
 clustering: this agent does not account for clusters of items that may not be the best individual node to go to but would lead to a higher overall score due to proximity of other items in the area.
+
+
 ![](ClusteringVisualized.png?raw=true)<br>
 
 Sparse Map:
 ![](SparseMap.png?raw=true)
 Item Locations (corresponds with item set)
-GOAL_POSITIONS = [[-36, -36], [-29, -23], [36, -28], [-25, 41], [-5, -35], [-7, 16], [-18, -10], [1, -23], [43, 37],
-                  [26, 37],
-                  [32, 8], [-41, -40], [41, -5], [-35, 33], [-22, -3], [0, -7], [-17, -43], [-22, -11], [-13, -18],
-                  [-42, 28],
-                  [1, 41], [6, 15], [-5, 40], [3, -29], [37, -22], [-16, -30], [-30, 32], [16, 17], [-17, 39], [20, 23]]
 
 
 Highest Potential Score (Sparse):
@@ -47,14 +42,18 @@ Cluster Map:
 Our AI should solve the issue of going for valuable individual items rather than higher value clusters. 
 
 ## Approach:
-The agent uses a constant hueristic to evaluate the reward for each item given the distance to the item from the current position while factoring the item value and finding high value clusters of items by utilizing a learned hueristic built from past runs. The learned hueristic AI solves the problem of item value and clustering.
+The agent uses A* algorithm, A* = f(n) + g(n), where f(n) is the learned heuristic and g(n) is the distance between the agent and the item.
 
-### Building the constant hueristic
+
+
+a constant hueristic to evaluate the reward for each item given the distance to the item from the current position while factoring the item value and finding high value clusters of items by utilizing a learned hueristic built from past runs. The learned hueristic AI solves the problem of item value and clustering.
+
+### Building the constant heuristic
 The constant hueristic utilizes the constant variable of item location with respect to the agent's current location to guide the agent's movement.
 
 g(n) : giving the agent position x1, y1, giving each item’s position x2, y2, calculate the distance between the agent and each item using formula D = sqrt ((x2 - x1)^2 + (y2 - y1)^2) 
 
-### Building the learned hueristic
+### Building the learned heuristic
 The learned hueristic is a set of past runs stored in a dictionary. There is a 50% chance the agent will choose a random item and a 50% chance the agent will choose the closest item when running the trials for the learned hueristic. After many runs, the dictionary will hold many different item pickup sequences with a score attributed to the run. This dictionary will then help guide agent movement (lookup current picked up item with prev runs, choose highest run, make next pickup next in stored sequence).
 
 Key, value dictionary built with each entry representing a training run.
