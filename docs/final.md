@@ -14,25 +14,27 @@ with 30 predetermined distinct spawned items. Each item is distinct with a disti
 ![](ClusteringVisualized.png?raw=true)<br>
 
 ## Approach:
-The A* search algorithm A* = g(n) + h(n) is used to calculate the value of each item which is equal to the sum of g(n) + h(n), where g(n) is the distance from the agent position to the item's position and h(n) is a heuristic function that estimates the cost of the item. The agent evaluate the reward for each item given the distance to the item from its current position while factoring the item value and finding high value clusters of items by utilizing the heuristic function built from past runs.
+The A* search algorithm **A* = g(n) + h(n)** is used to calculate the value of each item which is equal to the sum of g(n) + h(n), where g(n) is the distance from the agent position to the item's position and h(n) is a heuristic function that estimates the cost of the item. The agent evaluate the reward for each item given the distance to the item from its current position while factoring the item value and finding high value clusters of items by utilizing the heuristic function built from past runs.
 
-##### **Calculating the distance**
+##### **Calculate the angle θ**
+Since the agent movement is contiunous, we need to calculate the angle at which the agent turns. Given the agent position (x1, y1), and item position (x2, y2), using the inverse tangent function **arctan((x2 - x1) / (y2 - y1))** to find the radian and convert to angle.
+
+##### **Calculate the distance g(n)**
 Given the agent position (x1, y1), and item position (x2, y2), we calculate the distance between the agent and each item using formula **distance = sqrt ((x2 - x1)^2 + (y2 - y1)^2)**.
 
-##### **Building the heuristic function**
+##### **Build the heuristic function f(n)**
 We store a certain amount of random runs in dictionary which hold different item pickup sequences with a score attribute to it. The dictionary will be used later for training the agent of which item to pick up next. Initially the agent has 50% chance to randomly pick up an item and 50% chance to pick up the closest item. After multiple runs, the agent will look up the dictionary and find out the sequence which has the highest score, with 65% chance to pick up the item in the sequence or 35% chance to pick up the closest item. The newly generate sequence will be added to the dictionary if it is distinct, and this process will be repeated for the next run.
 
 ## Evaluation:
+We evaluate our algorithm with the agent that:
+- Randomly pick up item
+- Pick up the closest item
 
 
 ### Seperate Enviornments:
 There are two different environment types we want to test our AI on: Sparce and Cluster.
-
 Sparse maps will have the item set very spread out. 
-
 Cluster maps will have the item set clustered together in bunches. 
-
-Different agents will be employed in these different areas. (1): random agent (random movements), (2): agent relying mainly on the constant hueristic and (3): agent relying mainly on the learned hueristic. This will help our evaluation of our AI (detailed in evaluation section).
 
 #### Sparse Map:
 Choosing a random item after every pickup and at initialization: 
