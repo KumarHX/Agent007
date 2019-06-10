@@ -30,7 +30,7 @@ We evaluate our algorithm with the agent that:
 - Randomly pick up an item
 - Randomly pick up the first item and closest item afterward
 
-We run all three agents with different environment settings and compute the total score and the average score that each agent achieve after 50 runs.
+We run all three agents with different map settings. One is sparse map where the items are evenly spread out and the other one is cluster map where the items clustered together in bunches. We then compute the total score and the average score that each agent achieve after 50 runs.
 
 - ### Random Agent
 Result after 50 runs using sparse map. The total score the agent achieved is -265 with an average score -5.3 <br>
