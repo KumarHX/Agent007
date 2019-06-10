@@ -16,19 +16,6 @@ value: item value is unknown to the agent
 clustering: this agent does not account for clusters of items that may not be the best individual node to go to but would lead to a higher overall score due to proximity of other items in the area.
 ![](ClusteringVisualized.png?raw=true)<br>
 
-
-
-
-
-### Item Stats
-ITEM SET = 'bowl': -5, 'red_mushroom': 5, 'brown_mushroom': 5, 'pumpkin': -5, 'egg': -25, 'sugar': -10, 'carrot': -10, 'cooked_rabbit': 10, 'baked_potato': 5, 'bread': 10, 'melon': 5, 'cookie': 5, 'mushroom_stew': 20, 'pumpkin_pie': 20, 'rabbit_stew': 50, 'melon_seeds': -50, 'pumpkin_seeds': -50, 'wheat': -30, 'apple': 5, 'diamond': 50, 'bone': -25, 'beetroot_soup': 20, 'golden_apple': 15, 'golden_carrot': -5, 'bow': -5,'coal': -20, 'glass_bottle': -25, 'golden_sword': -15, 'golden_axe': -15, 'golden_hoe': -15
-
-The range of individual scores (-50,50)
-Agent Starting Position [0.5, 0.5]
-45 seconds (time limit) = 900 ticks
-0.22 movement in 1 tick. 
-900 times 0.22 = 198 location change
-
 Sparse Map:
 ![](SparseMap.png?raw=true)
 Item Locations (corresponds with item set)
@@ -58,9 +45,8 @@ MAX SCORE: 245 points
 Cluster Map:
 ![](ClusterMap.png?raw=true)<br>
 Our AI should solve the issue of going for valuable individual items rather than higher value clusters. 
-## Approach:
 
-### Thesis of Solution:
+## Approach:
 The agent uses a constant hueristic to evaluate the reward for each item given the distance to the item from the current position while factoring the item value and finding high value clusters of items by utilizing a learned hueristic built from past runs. The learned hueristic AI solves the problem of item value and clustering.
 
 ### Building the constant hueristic
@@ -76,7 +62,7 @@ key: list of items picked up.
 value: Average item pick up score per path (reward).
 Save finished run in dictionary (learn from every run).
 
-### Using the learned hueristic
+### Using the learned hueristic (rewrite)
 Let's say we have 5 test runs in our dictionary.
 Itemlist: score
 A,V,C,D,E : 200
@@ -126,9 +112,9 @@ New path Q,V,C,U (score: 170)
 added to dictionary.
 
 
-
 ## Evaluation:
 f(n): reward, we didn’t count number of steps because the path is continuous, the depending factor is the item pickup sequence. Also, because the agent is trying to reach out the best score and each item is unique with a unique score, reward/# of items is a fair metric to evaluate performance of a run.
+
 ### Seperate Enviornments:
 There are two different environment types we want to test our AI on: Sparce and Cluster.
 
@@ -165,7 +151,7 @@ Choosing item based on learned hueristic:
 #### Results:
 
 
-## Sources
+## References:
 - [Learning Heuristic Functions For Large State Spaces](https://www.sciencedirect.com/science/article/pii/S0004370211000877?fbclid=IwAR3o29EXShje6HAfJ-OC908yusSttGQ1AaaLXFmG_2wmK_0_tiwZCSYQCDI) 
 - [Learning Heuristic Search via Imitation](http://proceedings.mlr.press/v78/bhardwaj17a/bhardwaj17a.pdf)
 - [Learning to Search More Efficiently from Experience: A Multi-Heuristic Approach](https://www.cs.cmu.edu/~maxim/files/learningtosearch_socs15.pdf)
@@ -175,10 +161,5 @@ Reports:
 - [Proposal](proposal.html)
 - [Status](status.html)
 - [Final](final.html)
-
-
-
-
-
 
 
