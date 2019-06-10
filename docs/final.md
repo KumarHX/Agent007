@@ -33,11 +33,11 @@ We evaluate our algorithm with the agent that:
 We run all three agents with different environment settings and compute the total score and the average score that each agent achieve after 50 runs.
 
 - ### Agent007
-Agent007 after 50 runs in sparse map <br>
+Result after 50 runs using sparse map <br>
 
 
 - ### Random Agent
-Random Agent after 50 runs in sparse map <br>
+Result after 50 runs using sparse map <br>
 
 
 - ### Agent pick up the closest item (first item is random)
