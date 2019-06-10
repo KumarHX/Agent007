@@ -30,18 +30,18 @@ We evaluate our algorithm with the agent that:
 - Randomly pick up an item
 - Randomly pick up the first item and closest item afterward
 
-We compute the total score and the average score that each agent achieve after 50 runs and compare the result.
+We run all three agents with different environment settings and compute the total score and the average score that each agent achieve after 50 runs.
 
 ##### **Agent007**
-Agent007 after 50 runs <br>
+Agent007 after 50 runs in sparse map <br>
 
 
 ##### **Random Agent**
-Random Agent after 50 runs <br>
+Random Agent after 50 runs in sparse map <br>
 
 
 ##### **Agent pick up the closest item (first item is random)**
-Agent after 50 runs <br>
+Agent after 50 runs in sparse map <br>
 <a href="url"><img src="ShortestPathSparse.png" align="center" height="300" width="500" ></a>
 
 
