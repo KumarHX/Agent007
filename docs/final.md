@@ -8,8 +8,7 @@ title:  Final
 ## Video:
 
 ## Project Summary:
-Agent 007 spawns on a flat map and has a time limit to pick up as many high value items as possible. The size of the map is 120x120 
-with 30 predetermined distinct spawned items. Each item is distinct with a distinct value. The map is not completely observable, only the nearby item's position are known to the agent but not item values. The agent has a certain amount of time to pick up any items, but the problem is that items can have negative values associated with them and some items may not be the best individual node to go to but would lead to a higher score due to proximity of other items in the area. Therefore, the agent need to use AI/ML algorithm to solve the problem, so that he can reach out the maximum score. In particular, we use A* Search algorithm.
+Agent 007 spawns on a flat map and has a time limit, 30 seconds to pick up as many high value items as possible. The size of the map is 120x120 with 30 predetermined distinct spawned items. Each item is distinct with a distinct value. The map is not completely observable, only the nearby item's position are known to the agent but not item values. The agent has a certain amount of time to pick up any items, but the problem is that items can have negative values associated with them and some items may not be the best individual node to go to but would lead to a higher score due to proximity of other items in the area. Therefore, the agent need to use AI/ML algorithm to solve the problem, so that he can reach out the maximum score. In particular, we use A* Search algorithm.
 
 <a href="url"><img src="ClusteringVisualized.png" align="center" height="300" width="600" ></a>
 
@@ -39,9 +38,11 @@ Result after 50 runs using cluster map. The total score achieved is -55 with an 
 <a href="url"><img src="RandomCluster.png" align="center" height="300" width="500" ></a>
 
 
-- ### Agent pick up the closest item (first item is random)
-Result after 50 runs using sparse map. The total score achieved is -195 with an average score -3.9. The score is slightly better than the random agent, since it is more likely to pick up more items. <br>
-<a href="url"><img src="ShortestPathSparsenew.png" align="center" height="300" width="500" ></a>
+- ### Agent pick up the closest item (first item is random) !Need Explanation of the Graph! Feel free to change
+Result after 50 runs using sparse map. The total score achieved is -195 with an average score -3.9. The score is slightly better than the random agent because... <br>
+<a href="url"><img src="ShortestPathSparsenew.png" align="center" height="300" width="500" ></a> <br><br>
+Result after 50 runs using cluster map. The total score achieved is -460 with an average score -9.2. The score is much lower than the random agent because...
+<a href="url"><img src="ShortestPathCluster.png" align="center" height="300" width="500" ></a> <br><br>
 
 - ### Agent007
 Result after 50 runs using sparse map. <br>
