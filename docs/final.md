@@ -17,7 +17,7 @@ with 30 predetermined distinct spawned items. Each item is distinct with a disti
 The A* search algorithm **A* = g(n) + h(n)** is used to calculate the value of each item which is equal to the sum of g(n) + h(n), where g(n) is the distance from the agent position to the item's position and h(n) is a heuristic function that estimates the cost of the item. The agent evaluate the reward for each item given the distance to the item from its current position while factoring the item value and finding high value clusters of items by utilizing the heuristic function built from past runs.
 
 ##### **Calculate the angle θ**
-Since the agent movement is contiunous, we need to calculate the angle at which the agent turns. Given the agent position (x1, y1), and item position (x2, y2), using the inverse tangent function **arctan((x2 - x1) / (y2 - y1))** to find the radian and convert to angle.
+Since the agent movement is contiunous, we need to calculate the angle at which the agent turns. Given the agent position (x1, y1), and item position (x2, y2), using the inverse tangent function **arctan((x2 - x1) / (y2 - y1))** to find the radian and convert the value to angle.
 
 ##### **Calculate the distance g(n)**
 Given the agent position (x1, y1), and item position (x2, y2), we calculate the distance between the agent and each item using formula **distance = sqrt ((x2 - x1)^2 + (y2 - y1)^2)**.
