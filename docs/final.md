@@ -9,10 +9,7 @@ title:  Final
 
 ## Project Summary:
 Agent 007 spawns on a flat map and has a time limit to pick up as many high value items as possible. The size of the map is 120x120 
-with 30 predetermined distinct spawned items. Each item is distinct with a distinct value. The map is not completely observable, all item's position are known to the agent but not item values. The agent has a certain amount of time to pick up any items, but the problem is that items can have negative values and for clusters of items ... 
-
-clustering: this agent does not account for clusters of items that may not be the best individual node to go to but would lead to a higher overall score due to proximity of other items in the area.
-
+with 30 predetermined distinct spawned items. Each item is distinct with a distinct value. The map is not completely observable, all item's position are known to the agent but not item values. The agent has a certain amount of time to pick up any items, but the problem is that items can have negative values associated with and some items may not be the best individual node to go to but would lead to a higher score due to proximity of other items in the area.
 
 ![](ClusteringVisualized.png?raw=true)<br>
 
@@ -39,10 +36,9 @@ MAX SCORE: 245 points
 
 Cluster Map:
 ![](ClusterMap.png?raw=true)<br>
-Our AI should solve the issue of going for valuable individual items rather than higher value clusters. 
 
 ## Approach:
-The agent uses A* algorithm, A* = f(n) + g(n), where f(n) is the learned heuristic and g(n) is the distance between the agent and the item.
+The agent uses A* search algorithm which is A* = g(n) + h(n), where g(n) is the distance from the agent position to the item's position and h(n) is a heuristic function that estimates the cost (reward) of the item.  
 
 
 
