@@ -41,8 +41,7 @@ Random Agent after 50 runs in sparse map <br>
 
 
 ##### **Agent pick up the closest item (first item is random)**
-Agent after 50 runs in sparse map <br>
-The total score that the agent achieve is -195 with an average score -3.9. <br>
+Agent after 50 runs in sparse map. The total score achieved is -195 with an average score -3.9. <br>
 <a href="url"><img src="ShortestPathSparse.png" align="center" height="300" width="500" ></a>
 
 
