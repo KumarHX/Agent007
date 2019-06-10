@@ -9,42 +9,16 @@ title:  Final
 
 ## Project Summary:
 Agent 007 spawns on a flat map and has a time limit to pick up as many high value items as possible. The size of the map is 120x120 
-with 30 predetermined distinct spawned items. Each item is distinct with a distinct value. The map is not completely observable, all item's position are known to the agent but not item values. The agent has a certain amount of time to pick up any items, but the problem is that items can have negative values associated with and some items may not be the best individual node to go to but would lead to a higher score due to proximity of other items in the area.
+with 30 predetermined distinct spawned items. Each item is distinct with a distinct value. The map is not completely observable, all item's position are known to the agent but not item values. The agent has a certain amount of time to pick up any items, but the problem is that items can have negative values associated with and some items may not be the best individual node to go to but would lead to a higher score due to proximity of other items in the area. Therefore, the agent need to use AI/ML algorithm to solve the problem, so that he can reach out the maximum score.
 
 ![](ClusteringVisualized.png?raw=true)<br>
 
-Sparse Map:
-![](SparseMap.png?raw=true)
-Item Locations (corresponds with item set)
-
-
-Highest Potential Score (Sparse):
-rabbit_stew, 11 location change, 50 points
-beetroot_soup, 13 location change, 20 points
-diamond, 22.3 location change, 50 points
-pumpkin_pie, 3.5 location change, 30 points 
-golden_apple, 12.8 location change, 15 points
-bread, 14.2 location change, 10 points
-baked_potato, 7.2 location change, 5 points
-melon, 14.3 location change, 5 points
-beetroot_soup, 18.94 location change, 20 points
-mushroom_stew, 16.83 location change, 20 points
-cooked_rabbit, 7.62 location change,  10 points 
-apple,  8.92 location change, 5 points
-red_mushroom, 12.53 location change 5 points
-MAX SCORE: 245 points
-
-Cluster Map:
-![](ClusterMap.png?raw=true)<br>
-
 ## Approach:
-The agent uses A* search algorithm which is A* = g(n) + h(n), where g(n) is the distance from the agent position to the item's position and h(n) is a heuristic function that estimates the cost (reward) of the item.  
+The agent uses A* search algorithm which is A* = g(n) + h(n), where g(n) is the distance from the agent position to the item's position and h(n) is a heuristic function that estimates the cost (reward) of the item. The agent evaluate the reward for each item given the distance to the item from its current position while factoring the item value and finding high value clusters of items by utilizing the heuristic function built from past runs.
 
 
 
-a constant hueristic to evaluate the reward for each item given the distance to the item from the current position while factoring the item value and finding high value clusters of items by utilizing a learned hueristic built from past runs. The learned hueristic AI solves the problem of item value and clustering.
-
-### Building the constant heuristic
+### Calculate the distance
 The constant hueristic utilizes the constant variable of item location with respect to the agent's current location to guide the agent's movement.
 
 g(n) : giving the agent position x1, y1, giving each item’s position x2, y2, calculate the distance between the agent and each item using formula D = sqrt ((x2 - x1)^2 + (y2 - y1)^2) 
