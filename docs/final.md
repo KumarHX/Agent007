@@ -8,28 +8,17 @@ title:  Final
 ## Video:
 
 ## Project Summary:
-
-### Problem Statement:
 Agent 007 spawns on a flat map and has a time limit to pick up as many high value items as possible. Agent knows item locations but not item values (could be negative).
 
-### Environment:
 The enviornment consists of a 120x120 flat world map with 30 predetermined distinct spawned items. The agent has a certain amount of time to grab as many high value items as possible. Each item is distinct with a distinct value. The map is not completely observable, all item positions are known to the agent but not item values. The agent is in constant motion and changes in the agent's positional degree direction lead to changes in movement direction.
 
-### Problems to Solve:
 value: item value is unknown to the agent
 clustering: this agent does not account for clusters of items that may not be the best individual node to go to but would lead to a higher overall score due to proximity of other items in the area.
 ![](ClusteringVisualized.png?raw=true)<br>
 
 
 
-### Seperate Enviornments:
-There are two different environment types we want to test our AI on: Sparce and Cluster.
 
-Sparse maps will have the item set very spread out. 
-
-Cluster maps will have the item set clustered together in bunches. 
-
-Different agents will be employed in these different areas. (1): random agent (random movements), (2): agent relying mainly on the constant hueristic and (3): agent relying mainly on the learned hueristic. This will help our evaluation of our AI (detailed in evaluation section).
 
 ### Item Stats
 ITEM SET = 'bowl': -5, 'red_mushroom': 5, 'brown_mushroom': 5, 'pumpkin': -5, 'egg': -25, 'sugar': -10, 'carrot': -10, 'cooked_rabbit': 10, 'baked_potato': 5, 'bread': 10, 'melon': 5, 'cookie': 5, 'mushroom_stew': 20, 'pumpkin_pie': 20, 'rabbit_stew': 50, 'melon_seeds': -50, 'pumpkin_seeds': -50, 'wheat': -30, 'apple': 5, 'diamond': 50, 'bone': -25, 'beetroot_soup': 20, 'golden_apple': 15, 'golden_carrot': -5, 'bow': -5,'coal': -20, 'glass_bottle': -25, 'golden_sword': -15, 'golden_axe': -15, 'golden_hoe': -15
@@ -140,6 +129,14 @@ added to dictionary.
 
 ## Evaluation:
 f(n): reward, we didn’t count number of steps because the path is continuous, the depending factor is the item pickup sequence. Also, because the agent is trying to reach out the best score and each item is unique with a unique score, reward/# of items is a fair metric to evaluate performance of a run.
+### Seperate Enviornments:
+There are two different environment types we want to test our AI on: Sparce and Cluster.
+
+Sparse maps will have the item set very spread out. 
+
+Cluster maps will have the item set clustered together in bunches. 
+
+Different agents will be employed in these different areas. (1): random agent (random movements), (2): agent relying mainly on the constant hueristic and (3): agent relying mainly on the learned hueristic. This will help our evaluation of our AI (detailed in evaluation section).
 
 #### Sparse Map:
 Choosing a random item after every pickup and at initialization: 
