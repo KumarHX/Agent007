@@ -27,20 +27,20 @@ We store a certain amount of random runs in dictionary which hold different item
 
 ## Evaluation:
 We evaluate our algorithm with the agent that:
-- Randomly pick up item
+- Randomly pick up an item
 - Randomly pick up the first item and closest item afterward
 
-#### **Agent007**
+##### **Agent007**
 Agent007 after 50 runs
 
 Agent007 after 100 runs
 
-#### **Random Agent**
+##### **Random Agent**
 Random Agent after 50 runs
 
 Random Agent after 100 runs
 
-#### **Agent pick up the closest item (first item is random)**
+##### **Agent pick up the closest item (first item is random)**
 Agent after 50 runs
 
 Agent after 100 runs
