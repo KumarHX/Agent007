@@ -20,7 +20,8 @@ The A* search algorithm **A* = g(n) + h(n)** is used to calculate the value of e
 Since the agent movement is contiunous, we need to calculate the angle at which the agent turns. Given the agent position (x1, y1), and item position (x2, y2), using the inverse tangent function **arctan((x2 - x1) / (y2 - y1))** to find the radian and convert the value to angle.
 
 ##### **Calculate the distance g(n)**
-Given the agent position (x1, y1), and item position (x2, y2), we calculate the distance between the agent and each item using formula **distance = sqrt ((x2 - x1)^2 + (y2 - y1)^2)**.
+Given the agent position (x1, y1), and item position (x2, y2), we calculate the distance between the agent and each item using formula **distance = \sqrt{\left(x\cdot \:2-x\cdot \:1\right)^2+\left(y\cdot \:2-y\cdot \:1\right)^2}=\sqrt{x^2+y^2}
+**.
 
 ##### **Build the heuristic function f(n)**
 We store a certain amount of random runs in dictionary which hold different item pickup sequences with a score attribute to it. The dictionary will be used later for training the agent of which item to pick up next. Initially the agent has 50% chance to randomly pick up an item and 50% chance to pick up the closest item. After multiple runs, the agent will look up the dictionary and find out the sequence which has the highest score, with 65% chance to pick up the item in the sequence or 35% chance to pick up the closest item. The newly generate sequence will be added to the dictionary if it is distinct, and this process will be repeated for the next run.
