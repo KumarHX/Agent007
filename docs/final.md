@@ -16,11 +16,20 @@ with 30 predetermined distinct spawned items. Each item is distinct with a disti
 ## Approach:
 The agent uses A* search algorithm which is A* = g(n) + h(n), where g(n) is the distance from the agent position to the item's position and h(n) is a heuristic function that estimates the cost (reward) of the item. The agent evaluate the reward for each item given the distance to the item from its current position while factoring the item value and finding high value clusters of items by utilizing the heuristic function built from past runs.
 
-#### **Calculate the distance**
-Given the agent position (x1, y1), and item position (x2, y2), we calculate the distance between the agent and each item using formula **distance = sqrt ((x2 - x1)^2 + (y2 - y1)^2)**. 
+##### **Calculate the distance g(n)**
+Given the agent position (x1, y1), and item position (x2, y2), we calculate the distance between the agent and each item using formula **distance = sqrt ((x2 - x1)^2 + (y2 - y1)^2)**.
 
-### Building the learned heuristic
-The learned hueristic is a set of past runs stored in a dictionary. There is a 50% chance the agent will choose a random item and a 50% chance the agent will choose the closest item when running the trials for the learned hueristic. After many runs, the dictionary will hold many different item pickup sequences with a score attributed to the run. This dictionary will then help guide agent movement (lookup current picked up item with prev runs, choose highest run, make next pickup next in stored sequence).
+##### **Building the heuristic function f(n)**
+We build the heuristic function using Q-learning algorithm, in specific we store a certain amount of runs in dictionary which hold different item pickup sequences with a score attribute to it. The ...
+
+
+The agent then 
+
+There is a 50% chance that the agent will pick up a random item and a 50% chance the agent will pick up the closest item. 
+
+The heuristic function is a set of past runs stored in a dictionary. There is a 50% chance the agent will pick up a random item and a 50% chance the agent will pick up the closest item. After a certain amount of runs, the dictionary will hold different item pickup sequences with a score attributed to each of them.
+
+This dictionary will help guide agent movement (lookup current picked up item with prev runs, choose highest run, make next pickup next in stored sequence).
 
 Key, value dictionary built with each entry representing a training run.
 key: list of items picked up.
