@@ -9,7 +9,7 @@ title:  Final
 
 ## Project Summary:
 Agent 007 spawns on a flat map and has a time limit to pick up as many high value items as possible. The size of the map is 120x120 
-with 30 predetermined distinct spawned items. Each item is distinct with a distinct value. The map is not completely observable, all item's position are known to the agent but not item values. The agent has a certain amount of time to pick up any items, but the problem is that items can have negative values associated with them and some items may not be the best individual node to go to but would lead to a higher score due to proximity of other items in the area. Therefore, the agent need to use AI/ML algorithm to solve the problem, so that he can reach out the maximum score. In particular, we use A* Search algorithm.
+with 30 predetermined distinct spawned items. Each item is distinct with a distinct value. The map is not completely observable, only the nearby item's position are known to the agent but not item values. The agent has a certain amount of time to pick up any items, but the problem is that items can have negative values associated with them and some items may not be the best individual node to go to but would lead to a higher score due to proximity of other items in the area. Therefore, the agent need to use AI/ML algorithm to solve the problem, so that he can reach out the maximum score. In particular, we use A* Search algorithm.
 
 <a href="url"><img src="ClusteringVisualized.png" align="center" height="300" width="600" ></a>
 
@@ -30,15 +30,17 @@ We evaluate our algorithm with the agent that:
 - Randomly pick up an item
 - Randomly pick up the first item and closest item afterward
 
-**Agent007**
+We calculate the total score and the average score that each agent achieve after 50 runs and compare the result.
+
+##### **Agent007**
 Agent007 after 50 runs
 
 
-**Random Agent**
+##### **Random Agent**
 Random Agent after 50 runs
 
 
-**Agent pick up the closest item (first item is random)**
+##### **Agent pick up the closest item (first item is random)**
 Agent after 50 runs
 
 
