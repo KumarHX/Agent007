@@ -32,10 +32,6 @@ We evaluate our algorithm with the agent that:
 
 We run all three agents with different environment settings and compute the total score and the average score that each agent achieve after 50 runs.
 
-- ### Agent007
-Result after 50 runs using sparse map <br>
-
-
 - ### Random Agent
 Result after 50 runs using sparse map <br>
 
@@ -43,6 +39,9 @@ Result after 50 runs using sparse map <br>
 - ### Agent pick up the closest item (first item is random)
 Result after 50 runs using sparse map. The total score the agent achieved is -195 with an average score -3.9. <br>
 <a href="url"><img src="ShortestPathSparse.png" align="center" height="300" width="500" ></a>
+
+- ### Agent007
+Result after 50 runs using sparse map <br>
 
 
 ## References:
