@@ -8,7 +8,7 @@ title:  Final
 ## Video:
 
 ## Project Summary:
-Agent 007 spawns on a flat map and has a time limit, 30 seconds to pick up as many high value items as possible. The size of the map is 120x120 with 30 predetermined distinct spawned items. Each item is distinct with a distinct value. The map is not completely observable, only the item's position are known to the agent but not item values. The agent has a certain amount of time to pick up any items, but the problem is that items can have negative values associated with them and some items may not be the best individual node to go to but would lead to a higher score due to proximity of other items in the area. Therefore, the agent need to use AI/ML algorithm to solve the problem, so that he can reach out the maximum score. In particular, we use A* Search algorithm.
+Agent 007 spawns on a flat map and has a time limit, 30 seconds to pick up as many high value items as possible. The size of the map is 120x120 with 30 predetermined distinct spawned items. Each item is distinct with a distinct value. The map is not completely observable, only the item's position are known to the agent but not item values. The agent has a certain amount of time to pick up any items, but the problem is that items can have negative values associated with them and some items may not be the best individual node to go to but would lead to a higher score due to proximity of other items in the area. Therefore, the agent need to use AI/ML algorithm to solve the problem, so that he can reach out as highest score as he can. In particular, we use A* Search algorithm.
 
 <a href="url"><img src="ClusteringVisualized.png" align="center" height="300" width="600" ></a>
 
