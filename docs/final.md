@@ -22,7 +22,7 @@ Since the agent movement is contiunous, we need to calculate the angle at which 
 Given the agent position (x1, y1), and item position (x2, y2), we calculate the distance between the agent and each item using formula **distance = sqrt((x2 - x1)^2 + (y2 - y1)^2)**.
 
 - **Build the heuristic function f(n)** <br>
-We store a certain amount of random runs in dictionary which hold different item pickup sequences with a score attribute to it. The dictionary will be used later for training the agent of which item to pick up next. Initially the agent has 50% chance to randomly pick up an item and 50% chance to pick up the closest item. After multiple runs, the agent will look up the dictionary and find out the sequence which has the highest score, with 65% chance to pick up the item in the sequence or 35% chance to pick up a random item. The newly generate sequence will be added to the dictionary if it is distinct, and this process will be repeated for the next run.
+We store a certain amount of random runs in dictionary which hold different item pickup sequences with a score attribute to it. The dictionary will be used later for training the agent of which item to pick up next. Initially the agent has 50% chance to randomly pick up an item and 50% chance to pick up the closest item. After multiple runs, the agent will look up the dictionary and find out the sequence which has the highest score, with 60% chance to pick up the item in the sequence or 40% chance to pick up a random item. The newly generate sequence will be added to the dictionary if it does not exist, and this process will be repeated for the next run.
 
 ## Evaluation:
 We evaluate our algorithm with the agent that:
