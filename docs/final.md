@@ -8,8 +8,7 @@ title:  Final
 ## Video:
 
 ## Project Summary:
-Agent 007 spawns on a flat map and has a time limit to pick up as many high value items as possible. The size of the map is 120x120 
-with 30 predetermined distinct spawned items. Each item is distinct with a distinct value. The map is not completely observable, only the nearby item's position are known to the agent but not item values. The agent has a certain amount of time to pick up any items, but the problem is that items can have negative values associated with them and some items may not be the best individual node to go to but would lead to a higher score due to proximity of other items in the area. Therefore, the agent need to use AI/ML algorithm to solve the problem, so that he can reach out the maximum score. In particular, we use A* Search algorithm.
+Agent 007 spawns on a flat map and has a time limit, 30 seconds to pick up as many high value items as possible. The size of the map is 120x120 with 30 predetermined distinct spawned items. Each item is distinct with a distinct value. The map is not completely observable, only the item's position are known to the agent but not item values. The agent has a certain amount of time to pick up any items, but the problem is that items can have negative values associated with them and some items may not be the best individual node to go to but would lead to a higher score due to proximity of other items in the area. Therefore, the agent need to use AI/ML algorithm to solve the problem, so that he can reach out as highest score as he can. In particular, we use A* Search algorithm.
 
 <a href="url"><img src="ClusteringVisualized.png" align="center" height="300" width="600" ></a>
 
@@ -23,7 +22,7 @@ Since the agent movement is contiunous, we need to calculate the angle at which 
 Given the agent position (x1, y1), and item position (x2, y2), we calculate the distance between the agent and each item using formula **distance = sqrt((x2 - x1)^2 + (y2 - y1)^2)**.
 
 - **Build the heuristic function f(n)** <br>
-We store a certain amount of random runs in dictionary which hold different item pickup sequences with a score attribute to it. The dictionary will be used later for training the agent of which item to pick up next. Initially the agent has 50% chance to randomly pick up an item and 50% chance to pick up the closest item. After multiple runs, the agent will look up the dictionary and find out the sequence which has the highest score, with 65% chance to pick up the item in the sequence or 35% chance to pick up the closest item. The newly generate sequence will be added to the dictionary if it is distinct, and this process will be repeated for the next run.
+We store a certain amount of random runs in dictionary which hold different item pickup sequences with a score attribute to it. The dictionary will be used later for training the agent of which item to pick up next. Initially the agent has 50% chance to randomly pick up an item and 50% chance to pick up the closest item. After multiple runs, the agent will look up the dictionary and find out the sequence which has the highest score, with 60% chance to pick up the item in the sequence or 40% chance to pick up a random item. The newly generate sequence will be added to the dictionary if it does not exist, and this process will be repeated for the next run.
 
 ## Evaluation:
 We evaluate our algorithm with the agent that:
@@ -32,17 +31,18 @@ We evaluate our algorithm with the agent that:
 
 We run all three agents with different map settings. One is sparse map where the items are evenly spread out and the other one is cluster map where the items clustered together in bunches. We then compute the total score and the average score that each agent achieve after 50 runs.
 
-- ### Random Agent
-Result after 50 runs using sparse map. The total score achieved is -265 with an average score -5.3. <br>
-<a href="url"><img src="RandomSparse.png" align="center" height="300" width="500" ></a>
-
-Result after 50 runs using cluster map. The total score achieved is -55 with an average score -1.1. <br>
+- ### Random Agent (! Need explanation of the graph)
+Result after 50 runs using sparse map. . <br>
+<a href="url"><img src="RandomSparse.png" align="center" height="300" width="500" ></a> <br><br>
+Result after 50 runs using cluster map. . <br>
 <a href="url"><img src="RandomCluster.png" align="center" height="300" width="500" ></a>
 
 
-- ### Agent pick up the closest item (first item is random)
-Result after 50 runs using sparse map. The total score achieved is -195 with an average score -3.9. The score is slightly better than the random agent, since it is more likely to pick up more items. <br>
-<a href="url"><img src="ShortestPathSparse.png" align="center" height="300" width="500" ></a>
+- ### Agent pick up the closest item (first item is random) !Need Explanation of the Graph! Feel free to change
+Result after 50 runs using sparse map.  <br>
+<a href="url"><img src="ShortestPathSparsenew.png" align="center" height="300" width="500" ></a> <br><br>
+Result after 50 runs using cluster map.  <br>
+<a href="url"><img src="ShortestPathCluster.png" align="center" height="300" width="500" ></a> 
 
 - ### Agent007
 Result after 50 runs using sparse map. <br>
