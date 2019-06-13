@@ -30,13 +30,13 @@ As the item number on the map increases, this algorithm scales very poorly. At t
 <a href="url"><img src="gridOne.png" align="center" height="300" width="600" ></a>
 <br>
 
-Greedy Best First Algorithm
-
 Each grid on this map represents a possible item sequence path. The agent will keep expanding until every single grid is explored. (teal grid in this case means the path was explored). If we say the yellow grid is the optimal path, it will not stop once that path has been found, since it has no way of knowing that is optimal till checking every unexplored path. However, if we can reduce the number of exploration paths we need to generate, we can substantially speed up the algorithm. With n items, this algorithm takes n! + n or O(n!) time to run. 
 <br>
 
 <a href="url"><img src="gridTwo.png" align="center" height="300" width="600" ></a>
 <br>
+
+Greedy Best First Algorithm
 
 The greedy best first Algorithm runs much faster than the Breadth First Search algorithm. It finds the closest item given most recent item pickup or spawn point (constantly recalculating at runtime) until a path sequence is found. The greedy best first search is NOT guaranteed to find the optimal solution. 
 
