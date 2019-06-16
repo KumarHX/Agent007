@@ -21,46 +21,25 @@ Breadth first search will always find the most optimal solution, but it will do 
 <a href="url"><img src="BFStree.png" align="center" height="300" width="600" ></a>
 <br>
 **Calculate Distance** <br>
-  Given agent position (x1, y1) and item position (x2, y2), we calculate the distance between the agent and the item using distance formula **D = sqrt((x2-x1)^2 + (y2-y1)^2)**. Then we store the total distance travelled of each combinations of item pickups and return the path which has the lowest distance score as the optimal solution.
+Given agent position (x1, y1) and item position (x2, y2), we calculate the distance between the agent and the item using distance formula **D = sqrt((x2-x1)^2 + (y2-y1)^2)**. Then we store the total distance travelled of each combinations of item pickups and return the path which has the lowest distance score as the optimal solution.
 <br>
 <a href="url"><img src="gridOne.png" align="center" height="300" width="550" ></a>
 <br>
+Each grid on this map represents a possible item sequence path. The agent will keep expanding until every single grid is explored. A teal grid in this case indicates the path was explored. The agent will not stop once that the optimal path has been found, since it has no way of knowing that is optimal until every unexplored path is checked. However, if we can reduce the number of full paths explorations we need to generate and still guarantee finding the optimal path, we can substantially speed up our search. 
 
-Each grid on this map represents a possible item sequence path. The agent will keep expanding until every single grid is explored. (A teal grid in this case indicates the path was explored) If the yellow grid is the optimal path, it will not stop once that path has been found, since it has no way of knowing that is optimal until every unexplored path is checked. However, if we can reduce the number of full paths explorations we need to generate and still guarantee finding the optimal path, we can substantially speed up our search. 
+- **Greedy Search Algorithm**<br>
+The Greedy Search algorithm runs much faster than the BFS algorithm. It only finds the closest item given the current agent position until a path sequence is found. Although it costs less time to finish the execution, the algorithm does not guaranteed to find the optimal path since it doesn't calculate the distance of all of the item pickup combinations.
 
-- **Greedy Best First Algorithm**<br>
 <a href="url"><img src="gridTwo.png" align="center" height="300" width="600" ></a>
 <br>
-The Greedy Best First Search algorithm runs much faster than the Breadth First Search algorithm. It finds the closest item given most recent item pickup or spawn point (constantly recalculating at runtime) until a path sequence is found. The Greedy Best First Search is NOT guaranteed to find the optimal solution. 
 
-
-Example:
-First train X runs with greedy and random pickup with distance score calculated and save in dictionary.
-Let's say we have 5 test runs in our dictionary. Itemlist: score A,V,C,D,E : 200 C:R:V:D:A : 150 M,N,O,P,R: -30 Q,A,S,T,P: 300 W,C,U,R: 270
-We start with the highest sequence value first element. Q,A,S,T,P: 300
-Current list: Q
-Then we either take the next highest value from list (50%) or a random item on map (50%) Let's say this run randomly selected V.
-Current list: Q,V
-Then we either take the next highest value from list (50%) or a random item on map (50%) Lets say the dictionary was selected.
-These two lists have V in them: A,V,C,D,E : 200 C:R:V:D:A : 150
-This list is higher: A,V,C,D,E : 200
-Next value: C. Current list: Q,V,C Then we either take the next highest value from list (50%) or a random item on map (50%) Lets say the dictionary was selected.
-These three lists have C in them: A,V,C,D,E : 200 C:R:V:D:A : 150 W,C,U,R: 270
-This list is highest: W,C,U,R: 270
-Next value: U. Current list: Q,V,C,U
-End of time. New path Q,V,C,U (score: 170) added to dictionary.
-
-- **A* Algorithm**
-The A* algorithm uses an admissible heuristic to optimistically find the optimal solution. As long as the cost the heuristic estimates to reach the goal is not higher than the lowest possible cost from the current point in the path, it is admissible.
-In our case, hueristics we choose cannot overpower the distance metric. 
-
+- **A* Algorithm** <br>
+The A* algorithm uses an admissible heuristic to optimistically find the optimal solution. As long as the cost the heuristic estimates to reach the goal is not higher than the lowest possible cost from the current point in the path, it is admissible. In our case, the heuristics we choose cannot overpower the distance metric. 
 <br>
 <a href="url"><img src="gridThree.png" align="center" height="300" width="600" ></a> 
 <br>
+Each grid on this map represents a possible item sequence path. The agent will expand different paths based on the heuristic until all the items are picked up in one of the paths. If the yellow grid is the optimal path, it will be the first path to finish getting all items and that sequence shall return. If the hueristic is admissible, it will be the optimal path.  
 
-Each grid on this map represents a possible item sequence path. The agent will expand different paths based on the heuristic until all the items are picked up in one of the paths (teal grid in this case means the path was explored). If we say the yellow grid is the optimal path, it will be the first path to finish getting all items and that sequence shall return. If the hueristic is admissible, it will be the optimal path. With n items, this algorithm takes O(b^d) time to run. 
-b is the branching factor (the average number of successors per state)
-d is depth of solution
 
 <br>
 Heuristic #1 distance:
