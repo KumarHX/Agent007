@@ -68,8 +68,10 @@ A* Search Algorithm will always find the optimal path with a more efficient comp
 - A* Heuristic #1
 The first heuristic calculate the lowest cost path at a given time rather than calculate all of the item pickup combinations at the start. Therefore, the computation time is slightly better than BFS.
 <br>
-<a href="url"><img src="hueristic1.png" align="center" height="300" width="600" ></a>
+<a href="url"><img src="heuristic1.png" align="center" height="250" width="550" ></a>
 <br>
+- A* Heuristic #2
+The second heuristic function 
 <br>
 <a href="url"><img src="hueristic2.png" align="center" height="300" width="600" ></a>
 <br>
