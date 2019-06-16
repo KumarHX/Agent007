@@ -8,21 +8,18 @@ title:  Final
 ## Video:
 
 ## Project Summary:
-Agent 007 is spawned on a fixed point on a flat 60x60 grid. This map generates item spawns with the locations known to the agent. The agent wants to pick up all the items on the grid with the most optimal path. The paths are judged based on distance travelled. The goal of our problem is to use different search strategies to solve this rendition of the traveling salesman problem.  
-In other words, the agent wants to find the most optimal path (least distance travelled) in the shortest amount of time possible. 
+Agent 007 is spawned on a fixed point on a flat 60x60 grid. This map generates item spawns with the locations known to the agent. The agent wants to pick up all the items on the grid with the most optimal path. The paths are judged based on distance travelled and the computation time. The goal of our project is to use different search strategies to solve this rendition of the traveling salesman problem. In other words, the agent wants to find the most optimal path, or the least distance travelled in the shortest amount of time possible. 
 
 # NEED TO GET 4 DIFFERENT MAP ITEMS/PLEACEMENT IMAGE!!!!
 
 <br>
 
 ## Approaches:
-Breadth First Search:
-Breadth first search will always find the most optimal solution, but it will do it rather slowly. Suppose there are 4 items on the map:
-STARTPOINT, A,B,C,D
-Each of these items will get expanded out with every single other item and generate every possible path. In the case of 4 items, this will lead to 4! + 4 (28) different combinations of item pickups.The distance (score) of each run is stored and the lowest score is returned as the optimal solution.
+- Breadth First Search:
+Breadth first search will always find the most optimal solution, but it will do it rather slowly. Suppose there are 4 items on the map,
+each of these items will get expanded out with every single other item and generate every possible path. This will lead to 4*3*2*1 = 24 different combinations of item pickups. We store the total distance travelled of each run into a list and return the lowest score as the optimal solution.
 <br>
-
-<a href="url"><img src="BFStree.png" align="center" height="300" width="600" ></a>
+<a href="url"><img src="BFStree.png" align="center" height="300" width="550" ></a>
 <br>
 
 As the item number on the map increases, this algorithm scales very poorly. At ten items, the algorithm takes 10! + 10 runs (3,628,810) to find the optimal path.
