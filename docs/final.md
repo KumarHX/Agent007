@@ -46,13 +46,12 @@ This heuristic builds seperate paths depending on the lowest cost path/item opti
 
 
 **Heuristic #2**:
-<br>
-<a href="url"><img src="ClusteringVisualized.png" align="center" height="300" width="600" ></a>
-<br>
 f(n) = c(n) + h(n), where <br>
 c(n) = cluster heuristic + distance <br>
 h(n) = cluster value from current item + minimum distance from current item <br>
 Each item is scored by 1/distance to all other items. Agent position is considered an item.
+<br>
+<a href="url"><img src="ClusteringVisualized.png" align="center" height="290" width="480" ></a>
 <br>
 The cluster heuristic acts as sum of all distances to other items from item / number of items x 0.05 (lower importance than distance)
 Items close to many other items indicate a potential for less distance needed to travel if those items are expanded - we built the A* cluster heuristic around that ideal. The heuristic acts as the sum of all distances to other items from each item /# of items times 0.05. Since we don’t want to have the agent picking up high cluster items across the map, we make it play a small role and still heavily rely on distance. NOTE: cannot prove admissibility, but provides optimal path in all 4 map variants.
