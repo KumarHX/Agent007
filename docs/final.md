@@ -66,10 +66,15 @@ BFS will always find the optimal path run.
 <a href="url"><img src="BFSchart.png" align="center" height="300" width="600" ></a>
 <br>
 Map 1 (7 items) Optimal Path: ['flint_and_steel', 'apple', 'iron_axe', 'iron_shovel', 'arrow', 'iron_pickaxe', 'bow']
-Map 1 (8 items) Optimal Path: ['flint_and_steel', 'iron_shovel', 'coal', 'iron_axe', 'bow', 'iron_pickaxe', 'apple', 'arrow']
-Map 1 (9 items) Optimal Path: ['iron_pickaxe', 'iron_axe', 'coal', 'flint_and_steel', 'iron_shovel', 'diamond', 'arrow', 'apple', 'bow']
-Map 1 (10 items) Optimal Path: ['apple', 'iron_axe', 'iron_shovel', 'bow', 'iron_pickaxe', 'coal', 'iron_ingot', 'flint_and_steel', 'arrow', 'diamond']
-Map 1 (11 items) Optimal Path: ['diamond', 'iron_axe', 'iron_shovel', 'arrow', 'apple', 'iron_ingot', 'iron_pickaxe', 'flint_and_steel', 'bow', 'gold_ingot', 'coal']
+<br>
+Map 2 (8 items) Optimal Path: ['flint_and_steel', 'iron_shovel', 'coal', 'iron_axe', 'bow', 'iron_pickaxe', 'apple', 'arrow']
+<br>
+Map 3 (9 items) Optimal Path: ['iron_pickaxe', 'iron_axe', 'coal', 'flint_and_steel', 'iron_shovel', 'diamond', 'arrow', 'apple', 'bow']
+<br>
+Map 4 (10 items) Optimal Path: ['apple', 'iron_axe', 'iron_shovel', 'bow', 'iron_pickaxe', 'coal', 'iron_ingot', 'flint_and_steel', 'arrow', 'diamond']
+<br>
+Map 5 (11 items) Optimal Path: ['diamond', 'iron_axe', 'iron_shovel', 'arrow', 'apple', 'iron_ingot', 'iron_pickaxe', 'flint_and_steel', 'bow', 'gold_ingot', 'coal']
+<br>
 <br>
 Greedy never finds optimal path. 
 <br>
