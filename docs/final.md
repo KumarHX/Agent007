@@ -8,112 +8,53 @@ title:  Final
 ## Video:
 
 ## Project Summary:
-Agent 007 is spawned on a fixed point on a flat 60x60 grid. This map generates item spawns with the locations known to the agent. The agent wants to pick up all the items on the grid with the most optimal path. The paths are judged based on distance travelled. The goal of our problem is to use different search strategies to solve this rendition of the traveling salesman problem.  
-In other words, the agent wants to find the most optimal path (least distance travelled) in the shortest amount of time possible. 
-
-# NEED TO GET 4 DIFFERENT MAP ITEMS/PLEACEMENT IMAGE!!!!
-
-<br>
+Agent 007 is spawned on a fixed point on a flat 100x100 grid. This map generates item spawns with the locations known to the agent. The agent wants to pick up all the items on the grid with the most optimal path. The paths are judged based on distance travelled and the execution time. The goal of our project is to use different search strategies to solve this rendition of the traveling salesman problem. In other words, the agent wants to find the most optimal path, or the least distance travelled in the shortest amount of time possible. 
 
 ## Approaches:
-Breadth First Search:
-Breadth first search will always find the most optimal solution, but it will do it rather slowly. Suppose there are 4 items on the map:
-STARTPOINT, A,B,C,D
-Each of these items will get expanded out with every single other item and generate every possible path. In the case of 4 items, this will lead to 4! + 4 (28) different combinations of item pickups.The distance (score) of each run is stored and the lowest score is returned as the optimal solution.
+- **Breadth First Search Algorithm:**<br>
+Breadth first search will always find the most optimal solution, but it will do it rather slowly. Suppose there are 4 items on the map, each of these items will get expanded out with every single other item and generate every possible path. This will lead to 4x3x2x1 = 24 different combinations of item pickups.
 <br>
-
 <a href="url"><img src="BFStree.png" align="center" height="300" width="600" ></a>
 <br>
-
-As the item number on the map increases, this algorithm scales very poorly. At ten items, the algorithm takes 10! + 10 runs (3,628,810) to find the optimal path.
+**Calculate Distance** <br>
+Given agent position (x1, y1) and item position (x2, y2), we calculate the distance between the agent and the item using distance formula **D = sqrt((x2-x1)^2 + (y2-y1)^2)**. Then we store the total distance travelled of each combinations of item pickups and return the path which has the lowest distance score as the optimal solution.
+<br>
+<a href="url"><img src="gridOne.png" align="center" height="290" width="480" ></a>
+<br>
+Each grid on this map represents a possible item sequence path. The agent will keep expanding until every single grid is explored. A teal grid in this case indicates the path was explored. The agent will not stop once that the optimal path has been found, since it has no way of knowing that is optimal until every unexplored path is checked. However, if we can reduce the number of full paths explorations we need to generate and still guarantee finding the optimal path, we can substantially speed up our search. 
 <br>
 
-
-<a href="url"><img src="gridOne.png" align="center" height="300" width="600" ></a>
+- **Greedy Search Algorithm**<br>
+The Greedy Search algorithm runs much faster than the BFS algorithm. It only finds the closest item given the current agent position until a path sequence is found. Again we use distance formula to compute the distance, **but the agent position will be updated relative to the item position**. Although it costs less time to finish the execution, the algorithm does not guaranteed to find the optimal path since it doesn't calculate the distance of all of the possible item pickup combinations.
+<a href="url"><img src="gridTwo.png" align="center" height="290" width="480" ></a>
 <br>
 
-Each grid on this map represents a possible item sequence path. The agent will keep expanding until every single grid is explored. (A teal grid in this case indicates the path was explored). If we say the yellow grid is the optimal path, it will not stop once that path has been found, since it has no way of knowing that is optimal until every unexplored path is checked. However, if we can reduce the number of full paths explorations we need to generate and still guarantee finding the optimal path, we can substantially speed up our search. With n items, this algorithm takes n! + n or O(n!) time to run. 
-
+- **A* Algorithm** <br>
+The A* algorithm uses an admissible heuristic to optimistically find the optimal solution. As long as the cost the heuristic estimates to reach the goal is not higher than the lowest possible cost from the current point in the path, it admissible. In our project, the heuristics we choose cannot overpower the distance metric. 
 <br>
-
-<a href="url"><img src="gridTwo.png" align="center" height="300" width="600" ></a>
+<a href="url"><img src="gridThree.png" align="center" height="290" width="480" ></a> 
 <br>
+Each grid on this map represents a possible sequence path. The agent will expand different paths based on the heuristic until all the items are picked up in one of the paths. If the yellow grid is the optimal path, it will be the first path to finish getting all items and that sequence shall return. If the heuristic is admissible, it will be the optimal path.
+We have two heuristic functions implemented: <br>
 
-Greedy Best First Algorithm
-
-The Greedy Best First Search algorithm runs much faster than the Breadth First Search algorithm. It finds the closest item given most recent item pickup or spawn point (constantly recalculating at runtime) until a path sequence is found. The Greedy Best First Search is NOT guaranteed to find the optimal solution. 
-
-Random Cavet: 
-Since the greedy algorithm will always choose the same path, we implemented an element of choosing a random item at times to see if including an element of variation in the pathfinder would lead to finding the optimal path. However, greedy would never know this was the optimal path, we backreference the path given by BFS for each map and see how long it takes or if ever some different path will eventually lead to the optimal outcome to test the strength of this approach. 
-
-Greedy Q-Learning Implementation
-The agent evaluates the reward for each item given the distance to the item from its current position while factoring the randomness element and continues to find the lowest distance sequence building from knowledge gained from previous runs. 
-
-Example:
-First train X runs with greedy and random pickup with distance score calculated and save in dictionary.
-Let's say we have 5 test runs in our dictionary. Itemlist: score A,V,C,D,E : 200 C:R:V:D:A : 150 M,N,O,P,R: -30 Q,A,S,T,P: 300 W,C,U,R: 270
-We start with the highest sequence value first element. Q,A,S,T,P: 300
-Current list: Q
-Then we either take the next highest value from list (50%) or a random item on map (50%) Let's say this run randomly selected V.
-Current list: Q,V
-Then we either take the next highest value from list (50%) or a random item on map (50%) Lets say the dictionary was selected.
-These two lists have V in them: A,V,C,D,E : 200 C:R:V:D:A : 150
-This list is higher: A,V,C,D,E : 200
-Next value: C. Current list: Q,V,C Then we either take the next highest value from list (50%) or a random item on map (50%) Lets say the dictionary was selected.
-These three lists have C in them: A,V,C,D,E : 200 C:R:V:D:A : 150 W,C,U,R: 270
-This list is highest: W,C,U,R: 270
-Next value: U. Current list: Q,V,C,U
-End of time. New path Q,V,C,U (score: 170) added to dictionary.
-
-# WOULD BE COOL TO HAVE JING'S VIDEO OF Greedy Q-Learning Implementation WORKING HERE
-
-
-A* Algorithm 
-The A* algorithm uses an admissible heuristic to optimistically find the optimal solution. As long as the cost the heuristic estimates to reach the goal is not higher than the lowest possible cost from the current point in the path, it is admissible.
-In our case, hueristics we choose cannot overpower the distance metric. 
-
-<br>
-<a href="url"><img src="gridThree.png" align="center" height="300" width="600" ></a> 
-<br>
-
-Each grid on this map represents a possible item sequence path. The agent will expand different paths based on the heuristic until all the items are picked up in one of the paths (teal grid in this case means the path was explored). If we say the yellow grid is the optimal path, it will be the first path to finish getting all items and that sequence shall return. If the hueristic is admissible, it will be the optimal path. With n items, this algorithm takes O(b^d) time to run. 
-b is the branching factor (the average number of successors per state)
-d is depth of solution
-
-<br>
-Heuristic #1 distance:
-<br>
-f(n) = c(n) + h(n)
-<br>
-c(n) = sum of distance from all items in the current path.
-<br>
-h(n) = minimum distance item from current item.
-
-<br>
-Distance is an admissible hueristic since distance cannot overpower distance. 
-<br>
-
-<br>
-Items close to many other items indicate a potential for less distance needed to travel if those items are expanded - we built the A* cluster heuristic around that ideal. The cluster heuristic acts as the sum of all distances to other items from each item/# of items times 0.05. Since we don’t want to have the agent picking up high cluster items across the map, we make it play a small role and still heavily rely on distance. NOTE: cannot prove admissibility, but provides optimal path in all 4 map variants.
+**Heuristic #1**:
+f(n) = c(n) + h(n), where<br>
+c(n) = sum of distance of all items given a path <br>
+h(n) = minimum distance from the current position <br>
+Items close to many other items indicate a potential for less distance needed to travel if those items are expanded - we built the A* cluster heuristic around that ideal. The heuristic acts as the sum of all distances to other items from each item /# of items times 0.05. Since we don’t want to have the agent picking up high cluster items across the map, we make it play a small role and still heavily rely on distance. NOTE: cannot prove admissibility, but provides optimal path in all 4 map variants.
 <br>
 
 <br>
 <a href="url"><img src="ClusteringVisualized.png" align="center" height="300" width="600" ></a>
 <br>
 
-<br>
-Heuristic #2 item cluster:
-<br>
+**Heuristic #2**:
+f(n) = c(n) + h(n), where <br>
+c(n) = cluster heuristic + distance <br>
+h(n) = cluster value from current item + minimum distance from current item <br>
 Each item is scored by 1/distance to all other items. Agent position is considered an item.
 <br>
-The cluster heuristic acts as sum of all distances to other items from item/# of items times 0.05 (lower importance)
-<br>
-f(n) = c(n) + h(n)
-<br>
-c(n) = cluster heuristic + distance 
-<br>
-h(n) = cluster value from current item + minimum distance from current item.
-<br>
+The cluster heuristic acts as sum of all distances to other items from item / number of items x 0.05 (lower importance)
 <br>
 
 ## Evaluation:
@@ -122,10 +63,6 @@ Map size =
 Breadth First Search Finds optimal path in: 
 <br>
 Does Greedy Algorithm Find optimal path?
-<br>
-Does Greedy Algorithm Randomized Find optimal path in BFS time or less?
-<br>
-Greedy Q-Learning Implementation analysis
 <br>
 A* Search Heuristic 1 Finds optimal path in: 
 <br>

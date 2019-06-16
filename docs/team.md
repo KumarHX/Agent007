@@ -7,7 +7,7 @@ title:  Team
 
 ***Pranavk1***: Pranav Kumar 
 <br>
-***eunbik2***:  Eunbin Ko 
+***eunbik1***:  Eunbin Ko 
 <br>
 ***jingl27***:  Jing Li 
 <br>
