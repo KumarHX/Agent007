@@ -52,7 +52,7 @@ Items close to many other items indicate a potential for less distance needed to
 <br>
 
 ## Evaluation:
-We compute the execution time and the total distance travelled for each algorithm using 4 different map settings and compare the results. <br>
+We compute the execution time and the total distance travelled for each algorithm using 4 different map settings and compare the results. <br><br>
 **Breadth First Search:** <br>
 Breadth First Search Algorithm will always find the optimal path run with minimum distance travelled. However, the computation time is slow since it needs to calculate the distance of each possible item pickup combinations.
 <br>
