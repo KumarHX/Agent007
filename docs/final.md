@@ -72,8 +72,8 @@ The first heuristic calculate the lowest cost path at a given time rather than c
 
 <a href="url"><img src="heuristic1.png" align="center" height="250" width="550" ></a>
 <br>
-**A* Heuristic #2** <br>
-The second heuristic function 
+ - A* Heuristic #2 <br>
+The second heuristic function calculate the cluster value of each item 
 <br>
 <a href="url"><img src="hueristic2.png" align="center" height="300" width="600" ></a>
 <br>
