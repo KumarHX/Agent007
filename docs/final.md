@@ -45,7 +45,7 @@ This heuristic builds seperate paths depending on the lowest cost path/item opti
 **Heuristic #2**: <br>
 f(n) = c(n) + h(n), where <br>
 c(n) = cluster heuristic + distance <br>
-h(n) = cluster value from current item + minimum distance from current item <br>
+h(n) = cluster value from current item + minimum distance from current item position <br>
 Each item is scored by 1/distance to all other items. Agent position is considered an item.
 <br>
 <a href="url"><img src="ClusteringVisualized.png" align="center" height="290" width="480" ></a>
@@ -70,12 +70,12 @@ A* Search Algorithm will always find the optimal path with a more efficient comp
  - A* Heuristic #1 <br>
 The first heuristic calculate the lowest cost path at a given time rather than calculate all of the item pickup combinations at the start. Therefore, the computation time is slightly better than BFS.
 
-<a href="url"><img src="heuristic1.png" align="center" height="250" width="550" ></a>
+<a href="url"><img src="Heuristic1.png" align="center" height="250" width="550" ></a>
 <br>
  - A* Heuristic #2 <br>
-The second heuristic function calculate the cluster value of each item 
-<br>
-<a href="url"><img src="hueristic2.png" align="center" height="300" width="600" ></a>
+The second heuristic function calculate the cluster value of each item and add the minimum distance from the current item position to the next item. This may not prove the admissibility as the estimated cost may overpower the actual cost, but it still guarantees to provide the optimal path. 
+
+<a href="url"><img src="heuristic2.png" align="center" height="250" width="550" ></a>
 <br>
 
 
