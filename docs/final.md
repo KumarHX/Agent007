@@ -25,7 +25,7 @@ Each grid on this map represents a possible item sequence path. The agent will k
 <br>
 
 - **Greedy Search Algorithm**<br>
-The Greedy Search algorithm runs much faster than the BFS algorithm. It only finds the closest item given the current agent position until a path sequence is found. Again we use distance formula to compute the distance, **but the agent position will be updated relative to the item position**. Although it costs less time to finish the execution, the algorithm does not guaranteed to find the optimal path since it doesn't calculate the distance of all of the possible item pickup combinations.
+The Greedy Search algorithm runs much faster than the BFS algorithm. It only finds the closest item given the current agent position until a path sequence is found. Again we use distance formula to compute the distance, the agent position will be updated relative to the item position. Although it costs less time to finish the execution at higher item maps, the algorithm does not guaranteed to find the optimal path since it doesn't calculate the distance of all of the possible item pickup combinations.
 <a href="url"><img src="gridTwo.png" align="center" height="290" width="480" ></a>
 <br>
 
