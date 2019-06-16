@@ -52,11 +52,11 @@ Items close to many other items indicate a potential for less distance needed to
 <br>
 
 ## Evaluation:
+We compute the execution time and total distance travelled for each algorithm and compare the results. <br>
+Breadth First Search:
+BFS will always find the optimal path run with minimum distance travelled. However, the computation time is slow since it needs to calculate the distance of each possible item pickup combinations.
 <br>
-BFS:
-BFS will always find the optimal path run.
-<br>
-<a href="url"><img src="BFSchart.png" align="center" height="300" width="600" ></a>
+<a href="url"><img src="BFSchart.png" align="center" height="290" width="480" ></a>
 <br>
 Map 1 (7 items) Optimal Path: ['flint_and_steel', 'apple', 'iron_axe', 'iron_shovel', 'arrow', 'iron_pickaxe', 'bow']
 <br>
