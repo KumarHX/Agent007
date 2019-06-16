@@ -75,9 +75,10 @@ The first heuristic calculate the lowest cost path at a given time rather than c
  - A* Heuristic #2 <br>
 The second heuristic function calculate the cluster value of each item and add the minimum distance from the current item position to the next item. This may not prove the admissibility as the estimated cost may overpower the actual cost, but it still guarantees to provide the optimal path. 
 
-<a href="url"><img src="heuristic2.png" align="center" height="250" width="550" ></a>
+<a href="url"><img src="Heuristic2.png" align="center" height="250" width="550" ></a>
 <br>
 
+The computation time vs. Number of Items Graph are shown below: <br>
 
 
 Analysis:
