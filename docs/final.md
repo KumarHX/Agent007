@@ -53,10 +53,10 @@ Items close to many other items indicate a potential for less distance needed to
 
 ## Evaluation:
 We compute the execution time and the total distance travelled for each algorithm using 4 different map settings and compare the results. <br>
-**Breadth First Search:**
+**Breadth First Search:** <br>
 Breadth First Search Algorithm will always find the optimal path run with minimum distance travelled. However, the computation time is slow since it needs to calculate the distance of each possible item pickup combinations.
 <br>
-<a href="url"><img src="bfsChart.png" align="center" height="290" width="480" ></a>
+<a href="url"><img src="bfsChart.png" align="center" height="250" width="550" ></a>
 <br>
 **Greedy Search:**
 Greedy Search Algorithm does not find the optimal path but the computation time is relatively fast when the map have more items. It does not calculate the distance for every potential path; instead, it return the shortest path based on the current agent position.
