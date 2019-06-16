@@ -38,7 +38,7 @@ In particular, we have two heuristic functions implemented: <br>
 **Heuristic #1**: <br>
 f(n) = c(n) + h(n), where<br>
 c(n) = sum of the distance of all the items for a given path <br>
-h(n) = minimum distance item from the current position <br>
+h(n) = minimum distance from the current position <br>
 This heuristic builds seperate paths depending on the lowest cost path/item option to pick up a given time. When any path has been fully expanded out (every node has been visited) that path is returned as the optimal solution. This slows down computation from BFS as every single full path does not neccasarily need to be expanded. <br>
 **Heuristic #2**: <br>
 f(n) = c(n) + h(n), where <br>
@@ -57,15 +57,16 @@ We compute the execution time and the total distance travelled for each algorith
 Breadth First Search Algorithm will always find the optimal path run with minimum distance travelled. However, the computation time is slow since it needs to calculate the distance of each possible item pickup combinations.
 <br>
 <a href="url"><img src="bfsChart.png" align="center" height="250" width="550" ></a>
-<br>
+<br><br>
 **Greedy Search:**
 Greedy Search Algorithm does not find the optimal path but the computation time is relatively fast when the map have more items. It does not calculate the distance for every potential path; instead, it return the shortest path based on the current agent position.
 <br>
-<a href="url"><img src="greedychart.png" align="center" height="300" width="600" ></a>
-<br>
-<br>
-A* always finds optimal path. 
-<br>
+<a href="url"><img src="Greedychart.png" align="center" height="250" width="550" ></a>
+<br><br>
+**A* Search:**
+A* Search Algorithm will always find the optimal path with a more efficient computation time.
+- A* Heuristic #1
+The first heuristic calculate the lowest cost path at a given time rather than calculate all of the item pickup combinations at the start. Therefore, the computation time is slightly better than BFS.
 <br>
 <a href="url"><img src="hueristic1.png" align="center" height="300" width="600" ></a>
 <br>
