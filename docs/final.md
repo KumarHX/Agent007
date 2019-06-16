@@ -22,20 +22,19 @@ Given agent position (x1, y1) and item position (x2, y2), we calculate the dista
 <a href="url"><img src="gridOne.png" align="center" height="290" width="480" ></a>
 <br>
 Each grid on this map represents a possible item sequence path. The agent will keep expanding until every single grid is explored. A teal grid in this case indicates the path was explored. The agent will not stop once that the optimal path has been found, since it has no way of knowing that is optimal until every unexplored path is checked. However, if we can reduce the number of full paths explorations we need to generate and still guarantee finding the optimal path, we can substantially speed up our search. 
+<br>
 
 - **Greedy Search Algorithm**<br>
-The Greedy Search algorithm runs much faster than the BFS algorithm. It only finds the closest item given the current agent position until a path sequence is found. Again we use the distance formular to compute the distance, however the agent position will be updated every frame. Although it costs less time to finish the execution, the algorithm does not guaranteed to find the optimal path since it doesn't calculate the distance of all of the possible item pickup combinations.
-<br>
+The Greedy Search algorithm runs much faster than the BFS algorithm. It only finds the closest item given the current agent position until a path sequence is found. Again we use distance formula to compute the distance, **but the agent position will be updated relative to the item position**. Although it costs less time to finish the execution, the algorithm does not guaranteed to find the optimal path since it doesn't calculate the distance of all of the possible item pickup combinations.
 <a href="url"><img src="gridTwo.png" align="center" height="290" width="480" ></a>
 <br>
 
 - **A* Algorithm** <br>
-The A* algorithm uses an admissible heuristic to optimistically find the optimal solution. As long as the cost the heuristic estimates to reach the goal is not higher than the lowest possible cost from the current point in the path. In our project, the heuristics we choose cannot overpower the distance metric. 
+The A* algorithm uses an admissible heuristic to optimistically find the optimal solution. As long as the cost the heuristic estimates to reach the goal is not higher than the lowest possible cost from the current point in the path, it admissible. In our project, the heuristics we choose cannot overpower the distance metric. 
 <br>
-<a href="url"><img src="gridThree.png" align="center" height="300" width="600" ></a> 
+<a href="url"><img src="gridThree.png" align="center" height="290" width="480" ></a> 
 <br>
-Each grid on this map represents a possible item sequence path. The agent will expand different paths based on the heuristic until all the items are picked up in one of the paths. If the yellow grid is the optimal path, it will be the first path to finish getting all items and that sequence shall return. If the hueristic is admissible, it will be the optimal path.  
-
+Each grid on this map represents a possible item sequence path. The agent will expand different paths based on the heuristic until all the items are picked up in one of the paths. If the yellow grid is the optimal path, it will be the first path to finish getting all items and that sequence shall return. If the hueristic is admissible, it will be the optimal path.
 
 <br>
 Heuristic #1 distance:
