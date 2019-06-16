@@ -15,8 +15,8 @@ Agent 007 is spawned on a fixed point on a flat 60x60 grid. This map generates i
 <br>
 
 ## Approaches:
-- Breadth First Search:
-- Breadth first search will always find the most optimal solution, but it will do it rather slowly. Suppose there are 4 items on the map, each of these items will get expanded out with every single other item and generate every possible path. This will lead to 4*3*2*1 = 24 different combinations of item pickups. We store the total distance travelled of each run into a list and return the lowest score as the optimal solution.
+- Breadth First Search:<br>
+Breadth first search will always find the most optimal solution, but it will do it rather slowly. Suppose there are 4 items on the map, each of these items will get expanded out with every single other item and generate every possible path. This will lead to 4*3*2*1 = 24 different combinations of item pickups. We store the total distance travelled of each run into a list and return the lowest score as the optimal solution.
 <br>
 <a href="url"><img src="BFStree.png" align="center" height="300" width="550" ></a>
 <br>
