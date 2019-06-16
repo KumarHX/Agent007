@@ -16,8 +16,7 @@ Breadth first search will always find the most optimal solution, but it will do 
 <br>
 <a href="url"><img src="BFStree.png" align="center" height="300" width="600" ></a>
 <br>
-**Calculate Distance** <br>
-Given agent position (x1, y1) and item position (x2, y2), we calculate the distance between the agent and the item using distance formula **D = sqrt((x2-x1)^2 + (y2-y1)^2)**. Then we store the total distance travelled of each combinations of item pickups and return the path which has the lowest distance score as the optimal solution.
+Given agent position (x1, y1) and item position (x2, y2), we calculate the distance between the agent and the item using distance formula **D = sqrt((x2-x1)^2 + (y2-y1)^2)**. Then we store the total distance travelled of each combinations and return the path which has the lowest distance score as the optimal solution.
 <br>
 <a href="url"><img src="gridOne.png" align="center" height="290" width="480" ></a>
 <br>
@@ -25,7 +24,7 @@ Each grid on this map represents a possible item sequence path. The agent will k
 <br>
 
 - **Greedy Search Algorithm**<br>
-The Greedy Search algorithm runs much faster than the BFS algorithm. It only finds the closest item given the current agent position until a path sequence is found. Again we use distance formula to compute the distance, the agent position will be updated relative to the item position. Although it costs less time to finish the execution at higher item maps, the algorithm does not guaranteed to find the optimal path since it doesn't calculate the distance of all of the possible item pickup combinations.
+The Greedy Search algorithm runs much faster than the BFS algorithm. It only finds the closest item given the current agent position until a path sequence is found. Again we use distance formula to compute the distance, but the agent position will be updated relative to the item position. Although it costs less time to finish the execution when there are many items on the map, the algorithm does not guaranteed to find the optimal path since it doesn't calculate the distance of all of the possible item pickup combinations.
 <a href="url"><img src="gridTwo.png" align="center" height="290" width="480" ></a>
 <br>
 
@@ -35,15 +34,13 @@ The A* algorithm uses an admissible heuristic to optimistically find the optimal
 <a href="url"><img src="gridThree.png" align="center" height="290" width="480" ></a> 
 <br>
 Each grid on this map represents a possible sequence path. The agent will expand different paths based on the heuristic until all the items are picked up in one of the paths. If the yellow grid is the optimal path, it will be the first path to finish getting all items and that sequence shall return. If the heuristic is admissible, it will be the optimal path.
-We have two heuristic functions implemented: <br>
-
+In particular, we have two heuristic functions implemented: <br>
 **Heuristic #1**:
 f(n) = c(n) + h(n), where<br>
 c(n) = sum of the distance of all the items for a given path <br>
 h(n) = minimum distance item from the current position <br>
 <br>
-This heuristic builds seperate paths depending on the lowest cost path/item option to pick up a given time. When any path has been fully expanded out (every node visited) that path is returned as the optimal solution. This slows down computation from BFS as every single full path does not neccasarily need to be expanded. 
-
+This heuristic builds seperate paths depending on the lowest cost path/item option to pick up a given time. When any path has been fully expanded out (every node has been visited) that path is returned as the optimal solution. This slows down computation from BFS as every single full path does not neccasarily need to be expanded. 
 
 **Heuristic #2**:
 f(n) = c(n) + h(n), where <br>
@@ -54,7 +51,7 @@ Each item is scored by 1/distance to all other items. Agent position is consider
 <a href="url"><img src="ClusteringVisualized.png" align="center" height="290" width="480" ></a>
 <br>
 The cluster heuristic acts as sum of all distances to other items from item / number of items x 0.05 (lower importance than distance)
-Items close to many other items indicate a potential for less distance needed to travel if those items are expanded - we built the A* cluster heuristic around that ideal. The heuristic acts as the sum of all distances to other items from each item /# of items times 0.05. Since we don’t want to have the agent picking up high cluster items across the map, we make it play a small role and still heavily rely on distance. NOTE: cannot prove admissibility, but provides optimal path in all 4 map variants.
+Items close to many other items indicate a potential for less distance needed to travel if those items are expanded - we built the A* cluster heuristic around that ideal. The heuristic acts as **(the sum of all distances to other items from each item / number of items) x 0.05**. Since we don’t want to have the agent picking up high cluster items across the map, we make it play a small role and still heavily rely on distance. NOTE: this heuristic cannot prove admissibility, but provides optimal path in all 4 map variants.
 <br>
 
 ## Evaluation:
