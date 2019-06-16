@@ -23,7 +23,7 @@ Breadth first search will always find the most optimal solution, but it will do 
 **Calculate Distance** <br>
 Given agent position (x1, y1) and item position (x2, y2), we calculate the distance between the agent and the item using distance formula **D = sqrt((x2-x1)^2 + (y2-y1)^2)**. Then we store the total distance travelled of each combinations of item pickups and return the path which has the lowest distance score as the optimal solution.
 <br>
-<a href="url"><img src="gridOne.png" align="center" height="290" width="500" ></a>
+<a href="url"><img src="gridOne.png" align="center" height="290" width="480" ></a>
 <br>
 Each grid on this map represents a possible item sequence path. The agent will keep expanding until every single grid is explored. A teal grid in this case indicates the path was explored. The agent will not stop once that the optimal path has been found, since it has no way of knowing that is optimal until every unexplored path is checked. However, if we can reduce the number of full paths explorations we need to generate and still guarantee finding the optimal path, we can substantially speed up our search. 
 
