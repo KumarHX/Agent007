@@ -39,93 +39,56 @@ We have two heuristic functions implemented: <br>
 
 **Heuristic #1**:
 f(n) = c(n) + h(n), where<br>
-c(n) = sum of distance of all items given a path <br>
-h(n) = minimum distance from the current position <br>
-Items close to many other items indicate a potential for less distance needed to travel if those items are expanded - we built the A* cluster heuristic around that ideal. The heuristic acts as the sum of all distances to other items from each item /# of items times 0.05. Since we don’t want to have the agent picking up high cluster items across the map, we make it play a small role and still heavily rely on distance. NOTE: cannot prove admissibility, but provides optimal path in all 4 map variants.
+c(n) = sum of the distance of all the items for a given path <br>
+h(n) = minimum distance item from the current position <br>
 <br>
+This hueristic builds seperate paths depending on the lowest cost path/item option to pick up a given time. When any path has been fully expanded out (every node visited) that path is returned as the optimal solution. This slows down computation from BFS as every single full path does not neccasarily need to be expanded. 
 
+
+**Heuristic #2**:
 <br>
 <a href="url"><img src="ClusteringVisualized.png" align="center" height="300" width="600" ></a>
 <br>
-
-**Heuristic #2**:
 f(n) = c(n) + h(n), where <br>
 c(n) = cluster heuristic + distance <br>
 h(n) = cluster value from current item + minimum distance from current item <br>
 Each item is scored by 1/distance to all other items. Agent position is considered an item.
 <br>
-The cluster heuristic acts as sum of all distances to other items from item / number of items x 0.05 (lower importance)
+The cluster heuristic acts as sum of all distances to other items from item / number of items x 0.05 (lower importance than distance)
+Items close to many other items indicate a potential for less distance needed to travel if those items are expanded - we built the A* cluster heuristic around that ideal. The heuristic acts as the sum of all distances to other items from each item /# of items times 0.05. Since we don’t want to have the agent picking up high cluster items across the map, we make it play a small role and still heavily rely on distance. NOTE: cannot prove admissibility, but provides optimal path in all 4 map variants.
 <br>
 
 ## Evaluation:
-Map size = 
 <br>
-Breadth First Search Finds optimal path in: 
+BFS:
+BFS will always find the optimal path run.
 <br>
-Does Greedy Algorithm Find optimal path?
+<a href="url"><img src="BFSchart.png" align="center" height="300" width="600" ></a>
 <br>
-A* Search Heuristic 1 Finds optimal path in: 
+Map 1 (7 items) Optimal Path: ['flint_and_steel', 'apple', 'iron_axe', 'iron_shovel', 'arrow', 'iron_pickaxe', 'bow']
+Map 1 (8 items) Optimal Path: ['flint_and_steel', 'iron_shovel', 'coal', 'iron_axe', 'bow', 'iron_pickaxe', 'apple', 'arrow']
+Map 1 (9 items) Optimal Path: ['iron_pickaxe', 'iron_axe', 'coal', 'flint_and_steel', 'iron_shovel', 'diamond', 'arrow', 'apple', 'bow']
+Map 1 (10 items) Optimal Path: ['apple', 'iron_axe', 'iron_shovel', 'bow', 'iron_pickaxe', 'coal', 'iron_ingot', 'flint_and_steel', 'arrow', 'diamond']
+Map 1 (11 items) Optimal Path: ['diamond', 'iron_axe', 'iron_shovel', 'arrow', 'apple', 'iron_ingot', 'iron_pickaxe', 'flint_and_steel', 'bow', 'gold_ingot', 'coal']
 <br>
-A* Search Heuristic 2 Finds optimal path in: 
+Greedy never finds optimal path. 
 <br>
-
-Map size = 
+<a href="url"><img src="greedychart.png" align="center" height="300" width="600" ></a>
 <br>
-Breadth First Search Finds optimal path in: 
 <br>
-Does Greedy Algorithm Find optimal path?
+A* always finds optimal path. 
 <br>
-Does Greedy Algorithm Randomized Find optimal path in BFS time or less?
 <br>
-Greedy Q-Learning Implementation analysis
+<a href="url"><img src="hueristic1.png" align="center" height="300" width="600" ></a>
 <br>
-A* Search Heuristic 1 Finds optimal path in: 
 <br>
-A* Search Heuristic 2 Finds optimal path in: 
-<br>
-
-
-Map size = 
-<br>
-Breadth First Search Finds optimal path in: 
-<br>
-Does Greedy Algorithm Find optimal path?
-<br>
-Does Greedy Algorithm Randomized Find optimal path in BFS time or less?
-<br>
-Greedy Q-Learning Implementation analysis
-<br>
-A* Search Heuristic 1 Finds optimal path in: 
-<br>
-A* Search Heuristic 2 Finds optimal path in: 
+<a href="url"><img src="hueristic2.png" align="center" height="300" width="600" ></a>
 <br>
 
-Map size = 
-<br>
-Breadth First Search Finds optimal path in: 
-<br>
-Does Greedy Algorithm Find optimal path?
-<br>
-Does Greedy Algorithm Randomized Find optimal path in BFS time or less?
-<br>
-Greedy Q-Learning Implementation analysis
-<br>
-A* Search Heuristic 1 Finds optimal path in: 
-<br>
-A* Search Heuristic 2 Finds optimal path in: 
-<br>
-# NEED TO GET RUN VALUES TABLE!!
 
-Graph 
-Y-axis is time taken to find optimal path
-X-axis is number of items on map 
-4 linear plots for each strategy 
-
-# CAN MAKE GRAPH AFTER RUN VALUES TABLE!!
-
-<br>
+<br><br>
 Analysis:
-As assumed, BFS scaled very poorly in execution time. Greedy Best First Algorithm had a higher likelyhood of finding the optimal solution in lower item maps. The Greedy Q-Learning Implementation did well in lower item maps and okay in higher item maps but did not manage to beat BFS in execution time for the middle item maps (indicating Greedy Q-Learning could have gotten lucky with the sequence in the higher item maps or the factorial increase of execution time makes high item BFS solutions so slow a greedy AI implementation is a better search strategy). A* hueristic #1 did the best out of all the search strategies except in the highest item map, where A* hueristic #2 found the optimal solution in less time than utilzing hueristic #1 indicating the clustering hueristic inclusion is very helpful in high density item maps (especially considering an extra cluster calculation has to be made for every item on the map with this hueristic). 
+As assumed, BFS scaled very poorly in execution time. Greedy Best First Algorithm never found the optimal solution, but the execution time was much faster and at smaller item maps the path found by the greedy search strategy was not much higher than the optimal solution. Greedy is a good algorithm to choose if the most optimal solution is not necessary. A* hueristic #1 did the best out of all the search strategies except in the highest item map, where A* hueristic #2 found the optimal solution in less time than utilzing hueristic #1. This indicates the clustering hueristic inclusion is very helpful in high density item maps (especially considering an extra cluster calculation has to be made for every item on the map with this hueristic). 
 
 <br>
 ## References:
