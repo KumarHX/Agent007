@@ -8,21 +8,22 @@ title:  Final
 ## Video:
 
 ## Project Summary:
-Agent 007 is spawned on a fixed point on a flat 60x60 grid. This map generates item spawns with the locations known to the agent. The agent wants to pick up all the items on the grid with the most optimal path. The paths are judged based on distance travelled and the computation time. The goal of our project is to use different search strategies to solve this rendition of the traveling salesman problem. In other words, the agent wants to find the most optimal path, or the least distance travelled in the shortest amount of time possible. 
+Agent 007 is spawned on a fixed point on a flat 100x100 grid. This map generates item spawns with the locations known to the agent. The agent wants to pick up all the items on the grid with the most optimal path. The paths are judged based on distance travelled and the execution time. The goal of our project is to use different search strategies to solve this rendition of the traveling salesman problem. In other words, the agent wants to find the most optimal path, or the least distance travelled in the shortest amount of time possible. 
 
 # NEED TO GET 4 DIFFERENT MAP ITEMS/PLEACEMENT IMAGE!!!!
 
 <br>
 
 ## Approaches:
-- **Breadth First Search:**<br>
-Breadth first search will always find the most optimal solution, but it will do it rather slowly. Suppose there are 4 items on the map, each of these items will get expanded out with every single other item and generate every possible path. This will lead to 4x3x2x1 = 24 different combinations of item pickups. We store the total distance travelled of each run into a list and return the lowest score as the optimal solution.
+- **Breadth First Search Algorithm:**<br>
+Breadth first search will always find the most optimal solution, but it will do it rather slowly. Suppose there are 4 items on the map, each of these items will get expanded out with every single other item and generate every possible path. This will lead to 4x3x2x1 = 24 different combinations of item pickups.
 <br>
 <a href="url"><img src="BFStree.png" align="center" height="300" width="600" ></a>
-As the item number on the map increases, this algorithm scales very poorly. At ten items, the algorithm can take 10! (=3,628,800) runs to find the optimal path. With n items, this algorithm will theoretically take O(n!) time to run. 
 <br>
-
-<a href="url"><img src="gridOne.png" align="center" height="270" width="600" ></a>
+  - Calculate Distance
+  Given agent position (x1, y1) and item position (x2, y2), we calculate the distance between the agent and the item using distance formula **D = sqrt((x2-x1)^2 + (y2-y1)^2)**. Then we store the total distance travelled of each combinations of item pickups and return the path which has the lowest distance score as the optimal solution.
+<br>
+<a href="url"><img src="gridOne.png" align="center" height="300" width="550" ></a>
 <br>
 
 Each grid on this map represents a possible item sequence path. The agent will keep expanding until every single grid is explored. (A teal grid in this case indicates the path was explored) If the yellow grid is the optimal path, it will not stop once that path has been found, since it has no way of knowing that is optimal until every unexplored path is checked. However, if we can reduce the number of full paths explorations we need to generate and still guarantee finding the optimal path, we can substantially speed up our search. 
@@ -32,11 +33,6 @@ Each grid on this map represents a possible item sequence path. The agent will k
 <br>
 The Greedy Best First Search algorithm runs much faster than the Breadth First Search algorithm. It finds the closest item given most recent item pickup or spawn point (constantly recalculating at runtime) until a path sequence is found. The Greedy Best First Search is NOT guaranteed to find the optimal solution. 
 
-Random Cavet: 
-Since the greedy algorithm will always choose the same path, we implemented an element of choosing a random item at times to see if including an element of variation in the pathfinder would lead to finding the optimal path. However, greedy would never know this was the optimal path, we backreference the path given by BFS for each map and see how long it takes or if ever some different path will eventually lead to the optimal outcome to test the strength of this approach. 
-
-Greedy Q-Learning Implementation
-The agent evaluates the reward for each item given the distance to the item from its current position while factoring the randomness element and continues to find the lowest distance sequence building from knowledge gained from previous runs. 
 
 Example:
 First train X runs with greedy and random pickup with distance score calculated and save in dictionary.
@@ -54,10 +50,7 @@ This list is highest: W,C,U,R: 270
 Next value: U. Current list: Q,V,C,U
 End of time. New path Q,V,C,U (score: 170) added to dictionary.
 
-# WOULD BE COOL TO HAVE JING'S VIDEO OF Greedy Q-Learning Implementation WORKING HERE
-
-
-A* Algorithm 
+- **A* Algorithm**
 The A* algorithm uses an admissible heuristic to optimistically find the optimal solution. As long as the cost the heuristic estimates to reach the goal is not higher than the lowest possible cost from the current point in the path, it is admissible.
 In our case, hueristics we choose cannot overpower the distance metric. 
 
