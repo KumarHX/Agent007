@@ -52,24 +52,14 @@ Items close to many other items indicate a potential for less distance needed to
 <br>
 
 ## Evaluation:
-We compute the execution time and total distance travelled for each algorithm and compare the results. <br>
-Breadth First Search:
-BFS will always find the optimal path run with minimum distance travelled. However, the computation time is slow since it needs to calculate the distance of each possible item pickup combinations.
+We compute the execution time and the total distance travelled for each algorithm using 4 different map settings and compare the results. <br>
+**Breadth First Search:**
+Breadth First Search Algorithm will always find the optimal path run with minimum distance travelled. However, the computation time is slow since it needs to calculate the distance of each possible item pickup combinations.
 <br>
-<a href="url"><img src="BFSchart.png" align="center" height="290" width="480" ></a>
+<a href="url"><img src="bfsChart.png" align="center" height="290" width="480" ></a>
 <br>
-Map 1 (7 items) Optimal Path: ['flint_and_steel', 'apple', 'iron_axe', 'iron_shovel', 'arrow', 'iron_pickaxe', 'bow']
-<br>
-Map 2 (8 items) Optimal Path: ['flint_and_steel', 'iron_shovel', 'coal', 'iron_axe', 'bow', 'iron_pickaxe', 'apple', 'arrow']
-<br>
-Map 3 (9 items) Optimal Path: ['iron_pickaxe', 'iron_axe', 'coal', 'flint_and_steel', 'iron_shovel', 'diamond', 'arrow', 'apple', 'bow']
-<br>
-Map 4 (10 items) Optimal Path: ['apple', 'iron_axe', 'iron_shovel', 'bow', 'iron_pickaxe', 'coal', 'iron_ingot', 'flint_and_steel', 'arrow', 'diamond']
-<br>
-Map 5 (11 items) Optimal Path: ['diamond', 'iron_axe', 'iron_shovel', 'arrow', 'apple', 'iron_ingot', 'iron_pickaxe', 'flint_and_steel', 'bow', 'gold_ingot', 'coal']
-<br>
-<br>
-Greedy never finds optimal path. 
+**Greedy Search:**
+Greedy Search Algorithm does not find the optimal path but the computation time is relatively fast when the map have more items. It does not calculate the distance for every potential path; instead, it return the shortest path based on the current agent position.
 <br>
 <a href="url"><img src="greedychart.png" align="center" height="300" width="600" ></a>
 <br>
