@@ -34,12 +34,14 @@ The A* algorithm uses an admissible heuristic to optimistically find the optimal
 <a href="url"><img src="gridThree.png" align="center" height="290" width="480" ></a> 
 <br>
 Each grid on this map represents a possible sequence path. The agent will expand different paths based on the heuristic until all the items are picked up in one of the paths. If the yellow grid is the optimal path, it will be the first path to finish getting all items and that sequence shall return. If the heuristic is admissible, it will be the optimal path.<br>
+<br>
 In particular, we have two heuristic functions implemented: <br>
 **Heuristic #1**: <br>
 f(n) = c(n) + h(n), where<br>
 c(n) = sum of the distance of all the items for a given path <br>
 h(n) = minimum distance from the current position <br>
 This heuristic builds seperate paths depending on the lowest cost path/item option to pick up a given time. When any path has been fully expanded out (every node has been visited) that path is returned as the optimal solution. This slows down computation from BFS as every single full path does not neccasarily need to be expanded. <br>
+<br>
 **Heuristic #2**: <br>
 f(n) = c(n) + h(n), where <br>
 c(n) = cluster heuristic + distance <br>
