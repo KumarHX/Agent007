@@ -35,13 +35,12 @@ The A* algorithm uses an admissible heuristic to optimistically find the optimal
 <br>
 Each grid on this map represents a possible sequence path. The agent will expand different paths based on the heuristic until all the items are picked up in one of the paths. If the yellow grid is the optimal path, it will be the first path to finish getting all items and that sequence shall return. If the heuristic is admissible, it will be the optimal path.<br>
 In particular, we have two heuristic functions implemented: <br>
-**Heuristic #1**:
+**Heuristic #1**: <br>
 f(n) = c(n) + h(n), where<br>
 c(n) = sum of the distance of all the items for a given path <br>
 h(n) = minimum distance item from the current position <br>
-<br>
-This heuristic builds seperate paths depending on the lowest cost path/item option to pick up a given time. When any path has been fully expanded out (every node has been visited) that path is returned as the optimal solution. This slows down computation from BFS as every single full path does not neccasarily need to be expanded. 
-**Heuristic #2**:<br>
+This heuristic builds seperate paths depending on the lowest cost path/item option to pick up a given time. When any path has been fully expanded out (every node has been visited) that path is returned as the optimal solution. This slows down computation from BFS as every single full path does not neccasarily need to be expanded. <br>
+**Heuristic #2**: <br>
 f(n) = c(n) + h(n), where <br>
 c(n) = cluster heuristic + distance <br>
 h(n) = cluster value from current item + minimum distance from current item <br>
@@ -49,7 +48,6 @@ Each item is scored by 1/distance to all other items. Agent position is consider
 <br>
 <a href="url"><img src="ClusteringVisualized.png" align="center" height="290" width="480" ></a>
 <br>
-The cluster heuristic acts as sum of all distances to other items from item / number of items x 0.05 (lower importance than distance)
 Items close to many other items indicate a potential for less distance needed to travel if those items are expanded - we built the A* cluster heuristic around that ideal. The heuristic acts as **(the sum of all distances to other items from each item / number of items) x 0.05**. Since we don’t want to have the agent picking up high cluster items across the map, we make it play a small role and still heavily rely on distance. NOTE: this heuristic cannot prove admissibility, but provides optimal path in all 4 map variants.
 <br>
 
