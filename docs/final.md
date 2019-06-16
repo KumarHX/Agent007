@@ -10,10 +10,6 @@ title:  Final
 ## Project Summary:
 Agent 007 is spawned on a fixed point on a flat 100x100 grid. This map generates item spawns with the locations known to the agent. The agent wants to pick up all the items on the grid with the most optimal path. The paths are judged based on distance travelled and the execution time. The goal of our project is to use different search strategies to solve this rendition of the traveling salesman problem. In other words, the agent wants to find the most optimal path, or the least distance travelled in the shortest amount of time possible. 
 
-# NEED TO GET 4 DIFFERENT MAP ITEMS/PLEACEMENT IMAGE!!!!
-
-<br>
-
 ## Approaches:
 - **Breadth First Search Algorithm:**<br>
 Breadth first search will always find the most optimal solution, but it will do it rather slowly. Suppose there are 4 items on the map, each of these items will get expanded out with every single other item and generate every possible path. This will lead to 4x3x2x1 = 24 different combinations of item pickups.
@@ -28,7 +24,7 @@ Given agent position (x1, y1) and item position (x2, y2), we calculate the dista
 Each grid on this map represents a possible item sequence path. The agent will keep expanding until every single grid is explored. A teal grid in this case indicates the path was explored. The agent will not stop once that the optimal path has been found, since it has no way of knowing that is optimal until every unexplored path is checked. However, if we can reduce the number of full paths explorations we need to generate and still guarantee finding the optimal path, we can substantially speed up our search. 
 
 - **Greedy Search Algorithm**<br>
-The Greedy Search algorithm runs much faster than the BFS algorithm. It only finds the closest item given the current agent position until a path sequence is found. Although it costs less time to finish the execution, the algorithm does not guaranteed to find the optimal path since it doesn't calculate the distance of all of the possible item pickup combinations.
+The Greedy Search algorithm runs much faster than the BFS algorithm. It only finds the closest item given the current agent position until a path sequence is found. Again we use the distance formular to compute the distance, however the agent position will be updated every frame. Although it costs less time to finish the execution, the algorithm does not guaranteed to find the optimal path since it doesn't calculate the distance of all of the possible item pickup combinations.
 <br>
 <a href="url"><img src="gridTwo.png" align="center" height="290" width="480" ></a>
 <br>
