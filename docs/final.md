@@ -20,20 +20,17 @@ Breadth first search will always find the most optimal solution, but it will do 
 <br>
 <a href="url"><img src="BFStree.png" align="center" height="300" width="600" ></a>
 <br>
-As the item number on the map increases, this algorithm scales very poorly. At ten items, the algorithm can take 10! (=3,628,800) runs to find the optimal path.
-<br>
-<a href="url"><img src="gridOne.png" align="center" height="300" width="600" ></a>
+As the item number on the map increases, this algorithm scales very poorly. At ten items, the algorithm can take 10! (=3,628,800) runs to find the optimal path. With n items, this algorithm will theoretically take O(n!) time to run. 
 <br>
 
-Each grid on this map represents a possible item sequence path. The agent will keep expanding until every single grid is explored. (A teal grid in this case indicates the path was explored). If we say the yellow grid is the optimal path, it will not stop once that path has been found, since it has no way of knowing that is optimal until every unexplored path is checked. However, if we can reduce the number of full paths explorations we need to generate and still guarantee finding the optimal path, we can substantially speed up our search. With n items, this algorithm takes n! + n or O(n!) time to run. 
-
+<a href="url"><img src="gridOne.png" align="center" height="270" width="600" ></a>
 <br>
 
+Each grid on this map represents a possible item sequence path. The agent will keep expanding until every single grid is explored. (A teal grid in this case indicates the path was explored) If the yellow grid is the optimal path, it will not stop once that path has been found, since it has no way of knowing that is optimal until every unexplored path is checked. However, if we can reduce the number of full paths explorations we need to generate and still guarantee finding the optimal path, we can substantially speed up our search. 
+
+- **Greedy Best First Algorithm**<br>
 <a href="url"><img src="gridTwo.png" align="center" height="300" width="600" ></a>
 <br>
-
-Greedy Best First Algorithm
-
 The Greedy Best First Search algorithm runs much faster than the Breadth First Search algorithm. It finds the closest item given most recent item pickup or spawn point (constantly recalculating at runtime) until a path sequence is found. The Greedy Best First Search is NOT guaranteed to find the optimal solution. 
 
 Random Cavet: 
