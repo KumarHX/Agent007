@@ -42,7 +42,7 @@ f(n) = c(n) + h(n), where<br>
 c(n) = sum of the distance of all the items for a given path <br>
 h(n) = minimum distance item from the current position <br>
 <br>
-This hueristic builds seperate paths depending on the lowest cost path/item option to pick up a given time. When any path has been fully expanded out (every node visited) that path is returned as the optimal solution. This slows down computation from BFS as every single full path does not neccasarily need to be expanded. 
+This heuristic builds seperate paths depending on the lowest cost path/item option to pick up a given time. When any path has been fully expanded out (every node visited) that path is returned as the optimal solution. This slows down computation from BFS as every single full path does not neccasarily need to be expanded. 
 
 
 **Heuristic #2**:
@@ -93,7 +93,7 @@ A* always finds optimal path.
 
 <br><br>
 Analysis:
-As assumed, BFS scaled very poorly in execution time. Greedy Best First Algorithm never found the optimal solution, and the execution time was not much faster and at only led to better time preformance at higher item maps. The path found by the greedy search strategy was not much worse than the optimal solution, indicating greedy is a good algorithm to choose if the most optimal solution is not necessary and there are many items on the map. A* algotithms find the optimal path. A* hueristic #1 did the best out of all the search strategies except in the highest item map, where A* hueristic #2 found the optimal solution in less time than utilzing hueristic #1. This indicates the clustering hueristic inclusion is very helpful in high density item maps (especially considering an extra cluster calculation has to be made for every item on the map with this hueristic). 
+As assumed, BFS scaled very poorly in execution time. Greedy Best First Algorithm never found the optimal solution, and the execution time was not much faster and at only led to better time preformance at higher item maps. The path found by the greedy search strategy was not much worse than the optimal solution, indicating greedy is a good algorithm to choose if the most optimal solution is not necessary and there are many items on the map. A* algotithms find the optimal path. A* heuristic #1 did the best out of all the search strategies except in the highest item map, where A* heuristic #2 found the optimal solution in less time than utilzing heuristic #1. This indicates the clustering heuristic inclusion is very helpful in high density item maps (especially considering an extra cluster calculation has to be made for every item on the map with this heuristic). 
 
 <br>
 ## References:
