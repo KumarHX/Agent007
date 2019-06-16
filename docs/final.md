@@ -67,10 +67,9 @@ Greedy Search Algorithm does not find the optimal path but the computation time 
 <br><br>
 **A* Search:**
 A* Search Algorithm will always find the optimal path with a more efficient computation time. <br>
- - A* Heuristic #1**
+ - A* Heuristic #1 <br>
 The first heuristic calculate the lowest cost path at a given time rather than calculate all of the item pickup combinations at the start. Therefore, the computation time is slightly better than BFS.
 
-<br>
 <a href="url"><img src="heuristic1.png" align="center" height="250" width="550" ></a>
 <br>
 **A* Heuristic #2** <br>
