@@ -93,7 +93,7 @@ A* always finds optimal path.
 
 <br><br>
 Analysis:
-As assumed, BFS scaled very poorly in execution time. Greedy Best First Algorithm never found the optimal solution, but the execution time was much faster and at smaller item maps the path found by the greedy search strategy was not much higher than the optimal solution. Greedy is a good algorithm to choose if the most optimal solution is not necessary. A* hueristic #1 did the best out of all the search strategies except in the highest item map, where A* hueristic #2 found the optimal solution in less time than utilzing hueristic #1. This indicates the clustering hueristic inclusion is very helpful in high density item maps (especially considering an extra cluster calculation has to be made for every item on the map with this hueristic). 
+As assumed, BFS scaled very poorly in execution time. Greedy Best First Algorithm never found the optimal solution, and the execution time was not much faster and at only led to better time preformance at higher item maps. The path found by the greedy search strategy was not much worse than the optimal solution, indicating greedy is a good algorithm to choose if the most optimal solution is not necessary and there are many items on the map. A* algotithms find the optimal path. A* hueristic #1 did the best out of all the search strategies except in the highest item map, where A* hueristic #2 found the optimal solution in less time than utilzing hueristic #1. This indicates the clustering hueristic inclusion is very helpful in high density item maps (especially considering an extra cluster calculation has to be made for every item on the map with this hueristic). 
 
 <br>
 ## References:
