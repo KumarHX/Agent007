@@ -58,42 +58,42 @@ We compute the execution time and the total distance travelled for each algorith
 **Breadth First Search:** <br>
 Breadth First Search Algorithm will always find the optimal path run with minimum distance travelled. However, the computation time is slow since it needs to calculate the distance of each possible item pickup combinations.
 <br>
-<a href="url"><img src="bfsChart.png" align="center" height="250" width="550" ></a>
+<a href="url"><img src="bfsChart.png" align="center" height="300" width="550" ></a>
 <br>
-<a href="url"><img src="BFS.png" align="center" height="250" width="550" ></a>
+<a href="url"><img src="BFS.png" align="center" height="300" width="550" ></a>
 <br><br>
 **Greedy Search:**
 Greedy Search Algorithm does not find the optimal path but the computation time is relatively fast when the map have more items. It does not calculate the distance for every potential path; instead, it return the shortest path based on the current agent position.
 <br>
-<a href="url"><img src="Greedychart.png" align="center" height="250" width="550" ></a>
+<a href="url"><img src="Greedychart.png" align="center" height="300" width="550" ></a>
 <br>
-<a href="url"><img src="Greedy.png" align="center" height="250" width="550" ></a>
+<a href="url"><img src="Greedy.png" align="center" height="300" width="550" ></a>
 <br><br>
 **A* Search:**
 A* Search Algorithm will always find the optimal path with a more efficient computation time. <br>
  - A* Heuristic #1 <br>
 The first heuristic calculate the lowest cost path at a given time rather than calculate all of the item pickup combinations at the start. Therefore, the computation time is slightly better than BFS.
 
-<a href="url"><img src="h1chart.png" align="center" height="250" width="550" ></a>
+<a href="url"><img src="h1chart.png" align="center" height="300" width="550" ></a>
 <br>
-<a href="url"><img src="H1.png" align="center" height="250" width="550" ></a>
+<a href="url"><img src="H1.png" align="center" height="300" width="550" ></a>
 <br>
  - A* Heuristic #2 <br>
 The second heuristic function calculate the cluster value of each item and add the minimum distance from the current item position to the next item. This may not prove the admissibility as the estimated cost may overpower the actual cost, but it still guarantees to provide the optimal path. 
 
-<a href="url"><img src="h2chart.png" align="center" height="250" width="550" ></a>
+<a href="url"><img src="h2chart.png" align="center" height="300" width="550" ></a>
 <br>
-<a href="url"><img src="H2.png" align="center" height="250" width="550" ></a>
+<a href="url"><img src="H2.png" align="center" height="300" width="550" ></a>
 <br>
 
 As assumed, BFS scaled very poorly in execution time. It does provide the optimal path, but as the number of items becomes larger and larger, the computation time will grow factorially. Greedy Search Algorithm will not find the optimal solution most of the time, and it never found the optimal solution in our map. Moreover, the execution time was not much faster and at only led to better time preformance at higher item maps. The path found by the greedy search strategy was not much worse than the optimal solution, indicating greedy is a good algorithm to choose if the most optimal solution is not necessary and there are many items on the map.<br>
 A* algotithms always find the optimal path like BFS but with more efficient computation time. The first heuristic did the best out of all the search strategies except in the highest item map, where heuristic #2 found the optimal solution in less time. This indicates the clustering heuristic inclusion is very helpful in high density item maps, especially considering an extra cluster calculation has to be made for every item on the map with this heuristic. 
 
 ## References:
-https://arxiv.org/pdf/1210.4913.pdf
-http://theory.stanford.edu/~amitp/GameProgramming/Heuristics.html
-https://artint.info/2e/html/ArtInt2e.Ch3.S6.SS2.html
-http://theory.stanford.edu/~amitp/GameProgramming/AStarComparison.html
+- https://arxiv.org/pdf/1210.4913.pdf
+- http://theory.stanford.edu/~amitp/GameProgramming/Heuristics.html
+- https://artint.info/2e/html/ArtInt2e.Ch3.S6.SS2.html
+- http://theory.stanford.edu/~amitp/GameProgramming/AStarComparison.html
 
 Reports:
 
