@@ -298,6 +298,16 @@ def heuristic(a, b):
     
     return math.sqrt((x2 - x1)**2 + (y2 - y1) **2)
 
+def cluster_hueristic(a):
+    cluster_distance = 0
+    if type(a) != tuple:
+        a = Items_Info.get(a)
+    for item in GOAL_TYPES:
+        if(a != item):
+            cluster_distance += math.sqrt((0.5- firstitem_position[0])** 2 + (0.5 - firstitem_position[1])**2)
+    return cluster_distance*0.05
+
+
 def a_star(start):
     frontier = PriorityQueue()
     frontier.put(start, 0)
@@ -311,6 +321,28 @@ def a_star(start):
         
         for next in GOAL_TYPES:
             new_cost = cost_so_far[current] + heuristic(current, next)
+
+            if next not in cost_so_far or new_cost < cost_so_far[next]:
+                cost_so_far[next] = new_cost
+                priority = new_cost
+                frontier.put(next, priority)
+                came_from[next] = current
+    
+    return came_from, cost_so_far
+
+def a_star2(start):
+    frontier = PriorityQueue()
+    frontier.put(start, 0)
+    came_from = {}
+    cost_so_far = {}
+    came_from[start] = None
+    cost_so_far[start] = 0
+
+    while not frontier.empty():
+        current = frontier.get()
+        
+        for next in GOAL_TYPES:
+            new_cost = cost_so_far[current] + heuristic(current, next) + cluster_hueristic(current)
 
             if next not in cost_so_far or new_cost < cost_so_far[next]:
                 cost_so_far[next] = new_cost
@@ -576,6 +608,29 @@ if __name__ == '__main__':
               #  agent_host.sendCommand("turn " + str(best_yaw))
 
               # A*
+              #  if len(random_item) == 0:
+              #      a_starpath = a_star((0.5, 0.5))
+              #      path_dict = a_starpath[1]
+              #      starpath = sorted(path_dict.items(), key = lambda kv: kv[1])
+              #      random_item = starpath[1][0]
+
+              #  for items in inventory:
+              #      if len(random_item) != 0:
+              #          if random_item['name'] == items['type']:
+              #              for ent in entities:
+              #                  if (ent['name'] == 'The Hunted'):
+              #                      x_value = ent['x']
+              #                      z_value = ent['z']
+              #              a_starpath = a_star((x_value, z_value))
+              #              path_dict = a_starpath[1]
+              #              starpath = sorted(path_dict.items(), key = lambda kv: kv[1])
+              #              random_item = starpath[1][0]
+              #      else:
+              #          a_starpath = a_star((0.5, 0.5))
+              #  best_yaw = findAngle(entities, random_item)
+              #  agent_host.sendCommand("turn " + str(best_yaw))
+
+              # A* hueristic 2
               #  if len(random_item) == 0:
               #      a_starpath = a_star((0.5, 0.5))
               #      path_dict = a_starpath[1]
