@@ -60,14 +60,14 @@ Breadth First Search Algorithm will always find the optimal path run with minimu
 <br>
 <a href="url"><img src="bfsChart.png" align="center" height="250" width="500" ></a>
 <br>
-<a href="url"><img src="bfs.png" align="center" height="250" width="450" ></a>
+<a href="url"><img src="BFS.png" align="center" height="250" width="450" ></a>
 <br><br>
 **Greedy Search:**
 Greedy Search Algorithm does not find the optimal path but the computation time is relatively fast when the map have more items. It does not calculate the distance for every potential path; instead, it return the shortest path based on the current agent position.
 <br>
 <a href="url"><img src="Greedychart.png" align="center" height="250" width="500" ></a>
 <br>
-<a href="url"><img src="greedy.png" align="center" height="250" width="450" ></a>
+<a href="url"><img src="Greedy.png" align="center" height="250" width="450" ></a>
 <br><br>
 **A* Search:**
 A* Search Algorithm will always find the optimal path with a more efficient computation time. <br>
