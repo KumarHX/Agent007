@@ -6,6 +6,7 @@ title:  Final
 # Agent007: The A* Scholar Final Report
 
 ## Video:
+<iframe width="560" height="315" src="https://www.youtube.com/embed/WT_jt3gwrlY" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 
 ## Project Summary:
 Agent 007 is spawned on a fixed point on a flat 100x100 grid. This map generates item spawns with the locations known to the agent. The agent wants to pick up all the items on the grid with the most optimal path. The paths are judged based on distance travelled and the execution time. The goal of our project is to use different search strategies to solve this rendition of the traveling salesman problem. In other words, the agent wants to find the most optimal path, or the least distance travelled in the shortest amount of time possible. 
@@ -16,8 +17,7 @@ Breadth first search will always find the most optimal solution, but it will do 
 <br>
 <a href="url"><img src="BFStree.png" align="center" height="300" width="600" ></a>
 <br>
-**Calculate Distance** <br>
-Given agent position (x1, y1) and item position (x2, y2), we calculate the distance between the agent and the item using distance formula **D = sqrt((x2-x1)^2 + (y2-y1)^2)**. Then we store the total distance travelled of each combinations of item pickups and return the path which has the lowest distance score as the optimal solution.
+Given agent position (x1, y1) and item position (x2, y2), we calculate the distance between the agent and the item using distance formula **D = sqrt((x2-x1)^2 + (y2-y1)^2)**. Then we store the total distance travelled of each combinations and return the path which has the lowest distance score as the optimal solution.
 <br>
 <a href="url"><img src="gridOne.png" align="center" height="290" width="480" ></a>
 <br>
@@ -25,7 +25,7 @@ Each grid on this map represents a possible item sequence path. The agent will k
 <br>
 
 - **Greedy Search Algorithm**<br>
-The Greedy Search algorithm runs much faster than the BFS algorithm. It only finds the closest item given the current agent position until a path sequence is found. Again we use distance formula to compute the distance, the agent position will be updated relative to the item position. Although it costs less time to finish the execution at higher item maps, the algorithm does not guaranteed to find the optimal path since it doesn't calculate the distance of all of the possible item pickup combinations.
+The Greedy Search algorithm runs much faster than the BFS algorithm. It only finds the closest item given the current agent position until a path sequence is found. Again we use distance formula to compute the distance, but the agent position will be updated relative to the item position. Although it costs less time to finish the execution when there are many items on the map, the algorithm does not guaranteed to find the optimal path since it doesn't calculate the distance of all of the possible item pickup combinations.
 <a href="url"><img src="gridTwo.png" align="center" height="290" width="480" ></a>
 <br>
 
@@ -34,79 +34,70 @@ The A* algorithm uses an admissible heuristic to optimistically find the optimal
 <br>
 <a href="url"><img src="gridThree.png" align="center" height="290" width="480" ></a> 
 <br>
-Each grid on this map represents a possible sequence path. The agent will expand different paths based on the heuristic until all the items are picked up in one of the paths. If the yellow grid is the optimal path, it will be the first path to finish getting all items and that sequence shall return. If the heuristic is admissible, it will be the optimal path.
-We have two heuristic functions implemented: <br>
-
-**Heuristic #1**:
+Each grid on this map represents a possible sequence path. The agent will expand different paths based on the heuristic until all the items are picked up in one of the paths. If the yellow grid is the optimal path, it will be the first path to finish getting all items and that sequence shall return. If the heuristic is admissible, it will be the optimal path.<br>
+<br>
+In particular, we have two heuristic functions implemented: <br>
+**Heuristic #1**: <br>
 f(n) = c(n) + h(n), where<br>
 c(n) = sum of the distance of all the items for a given path <br>
-h(n) = minimum distance item from the current position <br>
+h(n) = minimum distance from the current position <br>
+This heuristic builds seperate paths depending on the lowest cost path/item option to pick up a given time. When any path has been fully expanded out (every node has been visited) that path is returned as the optimal solution. This slows down computation from BFS as every single full path does not neccasarily need to be expanded. <br>
 <br>
-This heuristic builds seperate paths depending on the lowest cost path/item option to pick up a given time. When any path has been fully expanded out (every node visited) that path is returned as the optimal solution. This slows down computation from BFS as every single full path does not neccasarily need to be expanded. 
-
-
-**Heuristic #2**:
+**Heuristic #2**: <br>
 f(n) = c(n) + h(n), where <br>
 c(n) = cluster heuristic + distance <br>
-h(n) = cluster value from current item + minimum distance from current item <br>
+h(n) = cluster value from current item + minimum distance from current item position <br>
 Each item is scored by 1/distance to all other items. Agent position is considered an item.
 <br>
 <a href="url"><img src="ClusteringVisualized.png" align="center" height="290" width="480" ></a>
 <br>
-The cluster heuristic acts as sum of all distances to other items from item / number of items x 0.05 (lower importance than distance)
-Items close to many other items indicate a potential for less distance needed to travel if those items are expanded - we built the A* cluster heuristic around that ideal. The heuristic acts as the sum of all distances to other items from each item /# of items times 0.05. Since we don’t want to have the agent picking up high cluster items across the map, we make it play a small role and still heavily rely on distance. NOTE: cannot prove admissibility, but provides optimal path in all 4 map variants.
+Items close to many other items indicate a potential for less distance needed to travel if those items are expanded - we built the A* cluster heuristic around that ideal. The heuristic acts as **(the sum of all distances to other items from each item / number of items) x 0.05**. Since we don’t want to have the agent picking up high cluster items across the map, we make it play a small role and still heavily rely on distance. NOTE: this heuristic cannot prove admissibility, but provides optimal path in all 4 map variants.
 <br>
 
 ## Evaluation:
+We compute the execution time and the total distance travelled for each algorithm using 4 different map settings and compare the results. <br><br>
+**Breadth First Search:** <br>
+Breadth First Search Algorithm will always find the optimal path run with minimum distance travelled. However, the computation time is slow since it needs to calculate the distance of each possible item pickup combinations.
 <br>
-BFS:
-BFS will always find the optimal path run.
+<a href="url"><img src="bfsChart.png" align="center" height="300" width="550" ></a>
 <br>
-<a href="url"><img src="BFSchart.png" align="center" height="300" width="600" ></a>
-<br>
-Map 1 (7 items) Optimal Path: ['flint_and_steel', 'apple', 'iron_axe', 'iron_shovel', 'arrow', 'iron_pickaxe', 'bow']
-<br>
-Map 2 (8 items) Optimal Path: ['flint_and_steel', 'iron_shovel', 'coal', 'iron_axe', 'bow', 'iron_pickaxe', 'apple', 'arrow']
-<br>
-Map 3 (9 items) Optimal Path: ['iron_pickaxe', 'iron_axe', 'coal', 'flint_and_steel', 'iron_shovel', 'diamond', 'arrow', 'apple', 'bow']
-<br>
-Map 4 (10 items) Optimal Path: ['apple', 'iron_axe', 'iron_shovel', 'bow', 'iron_pickaxe', 'coal', 'iron_ingot', 'flint_and_steel', 'arrow', 'diamond']
-<br>
-Map 5 (11 items) Optimal Path: ['diamond', 'iron_axe', 'iron_shovel', 'arrow', 'apple', 'iron_ingot', 'iron_pickaxe', 'flint_and_steel', 'bow', 'gold_ingot', 'coal']
-<br>
-<br>
-Greedy never finds optimal path. 
-<br>
-<a href="url"><img src="greedychart.png" align="center" height="300" width="600" ></a>
-<br>
-<br>
-A* always finds optimal path. 
-<br>
-<br>
-<a href="url"><img src="hueristic1.png" align="center" height="300" width="600" ></a>
-<br>
-<br>
-<a href="url"><img src="hueristic2.png" align="center" height="300" width="600" ></a>
-<br>
-
-
+<a href="url"><img src="BFS.png" align="center" height="300" width="550" ></a>
 <br><br>
-Analysis:
-As assumed, BFS scaled very poorly in execution time. Greedy Best First Algorithm never found the optimal solution, and the execution time was not much faster and at only led to better time preformance at higher item maps. The path found by the greedy search strategy was not much worse than the optimal solution, indicating greedy is a good algorithm to choose if the most optimal solution is not necessary and there are many items on the map. A* algotithms find the optimal path. A* heuristic #1 did the best out of all the search strategies except in the highest item map, where A* heuristic #2 found the optimal solution in less time than utilzing heuristic #1. This indicates the clustering heuristic inclusion is very helpful in high density item maps (especially considering an extra cluster calculation has to be made for every item on the map with this heuristic). 
-
+**Greedy Search:**
+Greedy Search Algorithm does not find the optimal path but the computation time is relatively fast when the map have more items. It does not calculate the distance for every potential path; instead, it return the shortest path based on the current agent position.
 <br>
+<a href="url"><img src="Greedychart.png" align="center" height="300" width="550" ></a>
+<br>
+<a href="url"><img src="Greedy.png" align="center" height="300" width="550" ></a>
+<br><br>
+**A* Search:**
+A* Search Algorithm will always find the optimal path with a more efficient computation time. <br>
+ - A* Heuristic #1 <br>
+The first heuristic calculate the lowest cost path at a given time rather than calculate all of the item pickup combinations at the start. Therefore, the computation time is slightly better than BFS.
+
+<a href="url"><img src="h1chart.png" align="center" height="300" width="550" ></a>
+<br>
+<a href="url"><img src="H1.png" align="center" height="300" width="550" ></a>
+<br>
+ - A* Heuristic #2 <br>
+The second heuristic function calculate the cluster value of each item and add the minimum distance from the current item position to the next item. This may not prove the admissibility as the estimated cost may overpower the actual cost, but it still guarantees to provide the optimal path. 
+
+<a href="url"><img src="h2chart.png" align="center" height="300" width="550" ></a>
+<br>
+<a href="url"><img src="H2.png" align="center" height="300" width="550" ></a>
+<br>
+
+As assumed, BFS scaled very poorly in execution time. It does provide the optimal path, but as the number of items becomes larger and larger, the computation time will grow factorially. Greedy Search Algorithm will not find the optimal solution most of the time, and it never found the optimal solution in our map. Moreover, the execution time was not much faster and at only led to better time preformance at higher item maps. The path found by the greedy search strategy was not much worse than the optimal solution, indicating greedy is a good algorithm to choose if the most optimal solution is not necessary and there are many items on the map.<br>
+A* algotithms always find the optimal path like BFS but with more efficient computation time. The first heuristic did the best out of all the search strategies except in the highest item map, where heuristic #2 found the optimal solution in less time. This indicates the clustering heuristic inclusion is very helpful in high density item maps, especially considering an extra cluster calculation has to be made for every item on the map with this heuristic. 
+
 ## References:
-https://arxiv.org/pdf/1210.4913.pdf
-http://theory.stanford.edu/~amitp/GameProgramming/Heuristics.html
-https://artint.info/2e/html/ArtInt2e.Ch3.S6.SS2.html
-http://theory.stanford.edu/~amitp/GameProgramming/AStarComparison.html
+- https://arxiv.org/pdf/1210.4913.pdf
+- http://theory.stanford.edu/~amitp/GameProgramming/Heuristics.html
+- https://artint.info/2e/html/ArtInt2e.Ch3.S6.SS2.html
+- http://theory.stanford.edu/~amitp/GameProgramming/AStarComparison.html
 
 Reports:
 
 - [Proposal](proposal.html)
 - [Status](status.html)
 - [Final](final.html)
-
-Source Code:
-
-
