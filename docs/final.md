@@ -76,14 +76,14 @@ The first heuristic calculate the lowest cost path at a given time rather than c
 
 <a href="url"><img src="h1chart.png" align="center" height="250" width="550" ></a>
 <br>
-<a href="url"><img src="h1.png" align="center" height="250" width="550" ></a>
+<a href="url"><img src="H1.png" align="center" height="250" width="550" ></a>
 <br>
  - A* Heuristic #2 <br>
 The second heuristic function calculate the cluster value of each item and add the minimum distance from the current item position to the next item. This may not prove the admissibility as the estimated cost may overpower the actual cost, but it still guarantees to provide the optimal path. 
 
 <a href="url"><img src="h2chart.png" align="center" height="250" width="550" ></a>
 <br>
-<a href="url"><img src="h2.png" align="center" height="250" width="550" ></a>
+<a href="url"><img src="H2.png" align="center" height="250" width="550" ></a>
 <br>
 
 As assumed, BFS scaled very poorly in execution time. It does provide the optimal path, but as the number of items becomes larger and larger, the computation time will grow factorially. Greedy Search Algorithm will not find the optimal solution most of the time, and it never found the optimal solution in our map. Moreover, the execution time was not much faster and at only led to better time preformance at higher item maps. The path found by the greedy search strategy was not much worse than the optimal solution, indicating greedy is a good algorithm to choose if the most optimal solution is not necessary and there are many items on the map.<br>
